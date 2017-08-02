@@ -1,0 +1,7998 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass amsart
+\begin_preamble
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[subtle]{savetrees}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{plot coordinates/math parser=false}
+\end_preamble
+\use_default_options true
+\begin_removed_modules
+theorems-ams
+\end_removed_modules
+\begin_modules
+eqs-within-sections
+figs-within-sections
+theorems-ams-bytype
+theorems-ams-extended-bytype
+fixltx2e
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine natbib_authoryear
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 0 0 31 -1
+\bullet 1 0 35 -1
+\bullet 2 0 24 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Exp}{\mathbb{E}}
+{\mathbb{E}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\mca}{\mathcal{A}}
+{\mathcal{A}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\mcb}{\mathcal{B}}
+{\mathcal{B}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\mce}{\mathcal{E}}
+{\mathcal{E}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\mcf}{\mathcal{F}}
+{\mathcal{F}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Final -- Econ 416
+\end_layout
+
+\begin_layout Author
+Michael Wooley
+\end_layout
+
+\begin_layout Date
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+today
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This paper shows how to solve for the equilibrium path out of a bank run
+ for the model in 
+\begin_inset CommandInset citation
+LatexCommand Citet
+key "10.1257/aer.20130665"
+
+\end_inset
+
+.
+ The solution method developed here can be described as 
+\begin_inset Quotes eld
+\end_inset
+
+shooting backwards
+\begin_inset Quotes erd
+\end_inset
+
+: beginning from a point near the steady state a candidate eqilibrium path
+ can be solved for by working backwards in a recursive manner.
+ A satisfactory path for a given run state asset price (
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+) will be one that hits certain pre-determined equilibrium values at period
+ 2, the period following the bank run.
+ A complete solution will consist of a path and a 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ that additionally satisfies a condition at the run period.
+\end_layout
+
+\begin_layout Standard
+Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Model"
+
+\end_inset
+
+ reviews the model.
+ The presentation tracks the exposition in 
+\begin_inset CommandInset citation
+LatexCommand citet*
+key "cdwHandout"
+
+\end_inset
+
+ quite closely; readers familiar with the model can skip ahead without missing
+ anything.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Steady-State-Solution"
+
+\end_inset
+
+ finds and discusses the features of the set of possible steady states,
+ which are indexed by 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+.
+ The strategy for finding the equilibrium path is described in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Solving-Backwards"
+
+\end_inset
+
+.
+ Results are presented and discussed in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Results"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Model"
+
+\end_inset
+
+Model
+\end_layout
+
+\begin_layout Subsection
+Bankers
+\end_layout
+
+\begin_layout Standard
+There is a unit measure of bankers.
+ At the start of each period 
+\begin_inset Formula $1-\sigma$
+\end_inset
+
+ bankers are randomly chosen to exit.
+ The remaining 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ bankers survive and operate in period 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ At the beginning of each period a measure 
+\begin_inset Formula $1-\sigma$
+\end_inset
+
+ of new bankers enter.
+ Therefore, the number of bankers is constant across periods.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Banking Problem in No-Bank Run Period
+\end_layout
+
+\begin_layout Standard
+Individual bankers have net worth 
+\begin_inset Formula $n_{t}$
+\end_inset
+
+ and issue deposits 
+\begin_inset Formula $d_{t}$
+\end_inset
+
+.
+ They buy capital 
+\begin_inset Formula $k_{t}^{b}$
+\end_inset
+
+ at a price 
+\begin_inset Formula $Q_{t}$
+\end_inset
+
+ subject to the balance sheet constraint
+\begin_inset Formula 
+\begin{equation}
+Q_{t}k_{t}^{b}=n_{t}+d_{t}.\label{eq:Balance sheet constraint}
+\end{equation}
+
+\end_inset
+
+Banks pay a gross interest rate 
+\begin_inset Formula $\bar{R}_{t}$
+\end_inset
+
+ on deposits 
+\begin_inset Formula $d_{t}$
+\end_inset
+
+ to households in period 
+\begin_inset Formula $t+1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+At each period a banker may choose either to default or not to default.
+\end_layout
+
+\begin_layout Paragraph*
+Non-Defaulting Banks
+\end_layout
+
+\begin_layout Standard
+Consider a banker who chooses not to default at 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ Then his net worth at 
+\begin_inset Formula $t+1$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+n_{t+1}=\begin{cases}
+Q_{t}k_{t}^{b}\left(Z_{t+1}+Q_{t+1}\right)-\bar{R}_{t}d_{t} & \text{If no bank run in }t+1.\\
+Q_{t}k_{t}^{b}\left(Z_{t+1}+Q_{t+1}^{*}\right)-x_{t+1}\bar{R}_{t}d_{t} & \text{If bank run in }t+1.
+\end{cases}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $Q_{t+1}^{*}<Q_{t+1}$
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Balance sheet constraint"
+
+\end_inset
+
+ hold.
+ In a bank run bank assets are wiped out.
+ The term 
+\begin_inset Formula $x_{t+1}$
+\end_inset
+
+ represents the 
+\emph on
+recovery rate 
+\emph default
+of depositors in a bank run state.
+ 
+\end_layout
+
+\begin_layout Paragraph*
+Participation Constraint
+\end_layout
+
+\begin_layout Standard
+A banker who chooses not to default at period 
+\begin_inset Formula $t$
+\end_inset
+
+ has a recursive franchise value of 
+\begin_inset Formula 
+\begin{equation}
+V_{t}=\max_{d_{t}}\,\Exp_{t}\left[\beta\left(1-\sigma\right)n_{t+1}+\beta\sigma\max\left(V_{t+1},\,\theta Q_{t+1}k_{t+1}^{b}\right)\right].\label{eq:Franchise Value 1}
+\end{equation}
+
+\end_inset
+
+A banker that defaults can abscond with 
+\begin_inset Formula $\theta$
+\end_inset
+
+ of his assets:
+\begin_inset Formula 
+\begin{equation}
+\theta Q_{t}k_{t}^{b}\label{eq:Value of Defaulting}
+\end{equation}
+
+\end_inset
+
+which leaves 
+\begin_inset Formula $\left(1-\theta\right)Q_{t}k_{t}^{b}$
+\end_inset
+
+ for the depositors.
+ A banker therefore chooses to 
+\emph on
+not 
+\emph default
+to default if and only if the value of not defaulting 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Franchise Value 1"
+
+\end_inset
+
+ dominates the value of defaulting 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Value of Defaulting"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\theta Q_{t}k_{t}^{b}\leq V_{t}.\label{eq:PC}
+\end{equation}
+
+\end_inset
+
+Any bank that does not satisfy 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:PC"
+
+\end_inset
+
+ will not receive deposits--households will choose to deposit elsewhere.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+It is the households that are choosing to 
+\begin_inset Quotes eld
+\end_inset
+
+participate
+\begin_inset Quotes erd
+\end_inset
+
+ or not in the participation constraint.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Bankers' Problem
+\end_layout
+
+\begin_layout Standard
+Focusing on an equilibrium where bankers choose not to abscond, we get the
+ following maximization problem,
+\begin_inset Formula 
+\begin{align}
+V_{t} & =\max_{d_{t}}\,\Exp_{t}\left[\beta\left(1-\sigma\right)n_{t+1}+\beta\sigma V_{t+1}\right]\label{eq:Bank Max Problem 1}\\
+ & \text{s.t.}\nonumber \\
+\theta Q_{t}k_{t}^{b} & \leq V_{t}\,\forall t.\nonumber 
+\end{align}
+
+\end_inset
+
+Notice that banks only differ according to their net worth, 
+\begin_inset Formula $n_{t}$
+\end_inset
+
+.
+ Consider the following scaling:
+\begin_inset Formula 
+\[
+\begin{array}{ccccc}
+\psi_{t} & \equiv\frac{V_{t}}{n_{t}} & \; & \; & \phi_{t}\equiv\frac{Q_{t}k_{t}^{b}}{n_{t}}\end{array}.
+\]
+
+\end_inset
+
+Then 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Bank Max Problem 1"
+
+\end_inset
+
+ can be rewritten as 
+\begin_inset Formula 
+\begin{align}
+\psi_{t} & =\max_{\phi_{t}}\,\Exp_{t}\left\{ \left[\beta\left(1-\sigma\right)+\beta\sigma\psi_{t+1}\right]\frac{n_{t+1}}{n_{t}}\right\} \label{eq:Bank Max Problem 2}\\
+ & \text{s.t.}\nonumber \\
+\theta\phi_{t} & \leq\psi_{t}\,\forall t.\nonumber 
+\end{align}
+
+\end_inset
+
+Notice that the bankers are now choosing the leverage multiplier, 
+\begin_inset Formula $\phi_{t}$
+\end_inset
+
+, rather than deposits, 
+\begin_inset Formula $d_{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Law of Motion of Individual Banker Net Worth
+\end_layout
+
+\begin_layout Standard
+A banker's net worth at 
+\begin_inset Formula $t+1$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\begin{equation}
+n_{t+1}=\begin{cases}
+k_{t}^{b}\left(Z_{t+1}+Q_{t+1}\right)-\bar{R}_{t}d_{t} & \text{If no bank run in }t+1.\\
+k_{t}^{b}\left(Z_{t+1}+Q_{t+1}^{*}\right)-x_{t+1}\bar{R}_{t}d_{t} & \text{If bank run in }t+1.
+\end{cases}\label{eq:net worth 1}
+\end{equation}
+
+\end_inset
+
+In the no run case a banker's revenues may be rewritten as
+\begin_inset Formula 
+\[
+k_{t}^{b}\left(Z_{t+1}+Q_{t+1}\right)=n_{t}\phi_{t}\frac{Z_{t+1}+Q_{t+1}}{Q_{t}}.
+\]
+
+\end_inset
+
+Recalling from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Balance sheet constraint"
+
+\end_inset
+
+ that 
+\begin_inset Formula $d_{t}=Q_{t}k_{t}^{b}-n_{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi_{t}=Q_{t}k_{t}^{b}/n_{t}$
+\end_inset
+
+ we get 
+\begin_inset Formula 
+\begin{align*}
+\bar{R}_{t}d_{t} & =\bar{R}_{t}\left[Q_{t}k_{t}^{b}-n_{t}\right]\\
+ & =\bar{R}_{t}n_{t}\left[\phi_{t}-1\right].
+\end{align*}
+
+\end_inset
+
+If a bank run occurs the banker is completely wiped out.
+ Thus, the law of motion for a banker's net worth 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:net worth 1"
+
+\end_inset
+
+ may be rewritten as
+\begin_inset Formula 
+\begin{equation}
+n_{t+1}=\begin{cases}
+n_{t}\left[\phi_{t}\frac{Z_{t+1}+Q_{t+1}}{Q_{t}}-\bar{R}_{t}\left(\phi_{t}-1\right)\right] & \text{If no bank run in }t+1.\\
+0 & \text{If bank run in }t+1.
+\end{cases}\label{eq:net worth 2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Furthermore, the fact that a banker is wiped out in a run implies that the
+ 
+\emph on
+recovery rate 
+\emph default
+on deposits 
+\begin_inset Formula $x_{t}$
+\end_inset
+
+ in the event of a run is
+\begin_inset Formula 
+\[
+x_{t+1}=\frac{k_{t}^{b}\left(Z_{t+1}+Q_{t+1}^{*}\right)}{\bar{R}_{t}d_{t}}<1.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Banker's Problem, Again
+\end_layout
+
+\begin_layout Standard
+Denote the probability of a bank run at period 
+\begin_inset Formula $t+1$
+\end_inset
+
+ by 
+\begin_inset Formula $P_{t}$
+\end_inset
+
+.
+ Then using 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:net worth 2"
+
+\end_inset
+
+ the banker's problem 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Bank Max Problem 2"
+
+\end_inset
+
+ may be rewritten as 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\psi_{t} & =\max_{\phi_{t}}\,\Exp_{t}\left(1-P_{t}\right)\left[\beta\left(1-\sigma\right)+\beta\sigma\psi_{t+1}\right]\left[\phi_{t}\frac{Z_{t+1}+Q_{t+1}}{Q_{t}}-\bar{R}_{t}\left(\phi_{t}-1\right)\right]\label{eq:Bank Max Problem 3}\\
+ & \text{s.t.}\nonumber \\
+\theta\phi_{t} & \leq\psi_{t}\,\forall t.\nonumber 
+\end{align}
+
+\end_inset
+
+Since 
+\begin_inset Formula $n_{t}$
+\end_inset
+
+ is absent from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Bank Max Problem 3"
+
+\end_inset
+
+ this implies that all bankers choose the same leverage multiplier, 
+\begin_inset Formula $\phi_{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Notice that because 
+\begin_inset Formula 
+\[
+V_{t}=\psi_{t}n_{t}
+\]
+
+\end_inset
+
+
+\emph on
+and 
+\emph default
+we now know that 
+\begin_inset Formula $\psi_{t}$
+\end_inset
+
+ is not a function of 
+\begin_inset Formula $n_{t}$
+\end_inset
+
+, it follows that 
+\begin_inset Formula $n_{t}=0$
+\end_inset
+
+ implies 
+\begin_inset Formula $V_{t}=0$
+\end_inset
+
+.
+ That is, the banker's franchise value is zero if they have no net worth.
+\end_layout
+
+\begin_layout Standard
+A further constraint is needed to ensure that bankers will choose to have
+ maximum leverage:
+\begin_inset Formula 
+\begin{equation}
+\theta>\frac{Z_{t+1}+Q_{t+1}}{Q_{t}}-\bar{R}_{t}>0.\label{eq:Maximal Leverage/Solvency Condition}
+\end{equation}
+
+\end_inset
+
+That is, the excess marginal value from non-default must be positive but
+ less than the marginal gain from default, 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ This ensures that banks will always accept deposits and, in particular,
+ that they will maximize their leverage,
+\begin_inset Formula 
+\begin{equation}
+\phi_{t}=\frac{\psi_{t}}{\theta}=\frac{1}{\theta}\left(1-P_{t}\right)\left[\beta\left(1-\sigma\right)+\beta\sigma\psi_{t+1}\right]\left[\phi_{t}\frac{Z_{t+1}+Q_{t+1}}{Q_{t}}-\bar{R}_{t}\left(\phi_{t}-1\right)\right].\label{eq:Maximal Leverage}
+\end{equation}
+
+\end_inset
+
+This inequality should be verified numerically.
+\end_layout
+
+\begin_layout Subsubsection
+Aggregation
+\end_layout
+
+\begin_layout Standard
+Since all bankers face the same problem, aggregate leverage 
+\begin_inset Formula $\Phi_{t}$
+\end_inset
+
+ equals each individual banker's leverage, 
+\begin_inset Formula $\phi_{t}$
+\end_inset
+
+.
+ Thus, we have the first equilibrium condition,
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Notice that, besides substituting the 
+\begin_inset Formula $\phi_{t}$
+\end_inset
+
+'s for 
+\begin_inset Formula $\Phi_{t}$
+\end_inset
+
+, the leverage condition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Maximal Leverage"
+
+\end_inset
+
+ has been used to substitute 
+\begin_inset Formula $\theta\Phi_{t}$
+\end_inset
+
+ for 
+\begin_inset Formula $\psi_{t}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+\Phi_{t}=\frac{\beta}{\theta}\left(1-P_{t}\right)\left[\left(1-\sigma\right)+\sigma\theta\Phi_{t+1}\right]\left[\Phi_{t}\frac{Z_{t+1}+Q_{t+1}}{Q_{t}}-\bar{R}_{t}\left(\Phi_{t}-1\right)\right]\label{eq:PC-EQ1}
+\end{equation}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+The law of motion for aggregate banker net worth may also be found by making
+ use of the scaling factors.
+ Let 
+\begin_inset Formula $\zeta_{t}\left(n\right)$
+\end_inset
+
+ be the period 
+\begin_inset Formula $t$
+\end_inset
+
+ distribution for banker net worth.
+ Then total net worth at 
+\begin_inset Formula $t$
+\end_inset
+
+ is given by
+\begin_inset Formula 
+\[
+N_{t}\equiv\int_{0}^{\infty}n\cdot\zeta_{t}\left(n\right)dn.
+\]
+
+\end_inset
+
+When there is no bank run at period 
+\begin_inset Formula $t+1$
+\end_inset
+
+ total end-of-period net worth for bankers operating in 
+\begin_inset Formula $t$
+\end_inset
+
+ is:
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The use of the 
+\begin_inset Formula $\tilde{N}_{t+1}$
+\end_inset
+
+ is meant to distinguish this 
+\emph on
+end-of-period 
+\emph default
+net worth
+\emph on
+ 
+\emph default
+from the 
+\emph on
+beginning of period 
+\emph default
+net worth that will be of interest.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\tilde{N}_{t+1}=N_{t}\left[\Phi_{t}\frac{Z_{t+1}+Q_{t+1}}{Q_{t}}-\bar{R}_{t}\left(\Phi_{t}-1\right)\right].
+\]
+
+\end_inset
+
+Measure 
+\begin_inset Formula $1-\sigma$
+\end_inset
+
+ of bankers are randomly chosen to exit at 
+\begin_inset Formula $t+1$
+\end_inset
+
+.
+ Their aggregate consumption is
+\begin_inset Formula 
+\[
+C_{t+1}^{b}=\left(1-\sigma\right)\tilde{N}_{t+1}=\left(1-\sigma\right)N_{t}\left[\Phi_{t}\frac{Z_{t+1}+Q_{t+1}}{Q_{t}}-\bar{R}_{t}\left(\Phi_{t}-1\right)\right]
+\]
+
+\end_inset
+
+A measure 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ of bankers from period 
+\begin_inset Formula $t$
+\end_inset
+
+ survive while a measure 
+\begin_inset Formula $1-\sigma$
+\end_inset
+
+ of bankers enter with endowment 
+\begin_inset Formula $w_{t+1}^{b}$
+\end_inset
+
+.
+ Denote the total endowment of new bankers by 
+\begin_inset Formula $W_{t+1}^{b}=\left(1-\sigma\right)w_{t+1}^{b}$
+\end_inset
+
+.
+ Then the law of motion for the aggregate beginning-of-period net worth
+ of bankers is
+\begin_inset Formula 
+\begin{align}
+N_{t+1} & =\sigma N_{t}\left[\Phi_{t}\frac{Z_{t+1}+Q_{t+1}}{Q_{t}}-\bar{R}_{t}\left(\Phi_{t}-1\right)\right]+W_{t+1}^{b}\label{eq:LoM Net Worth-EQ2}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Bank Run
+\end_layout
+
+\begin_layout Standard
+In this model a bank run can only occur via an economic shock or decline
+ in asset prices 
+\begin_inset Formula $Q_{t+1}$
+\end_inset
+
+.
+ It must, therefore, affect the 
+\emph on
+entire 
+\emph default
+banking system.
+ In fact, under 
+\begin_inset Quotes eld
+\end_inset
+
+normal
+\begin_inset Quotes erd
+\end_inset
+
+ conditions a bank can repay all of its depositors in full.
+\end_layout
+
+\begin_layout Paragraph*
+A Run on an Individual Bank
+\end_layout
+
+\begin_layout Standard
+Recall that in the no-bank run case we had
+\begin_inset Formula 
+\begin{equation}
+\frac{Z_{t+1}+Q_{t+1}}{Q_{t}}-\bar{R}_{t}>0.\label{eq:Bank run solvency}
+\end{equation}
+
+\end_inset
+
+If a bank is called on to pay back all of its deposits under normal conditions
+ (i.e.
+ when this condition holds) it could do so.
+ To see this use the aggregate analog to the balance sheet condition, 
+\begin_inset Formula $Q_{t}K_{t}^{b}=D_{t}+N_{t}$
+\end_inset
+
+, and multiply both sides of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:FOC Capital-EQ5"
+
+\end_inset
+
+ by 
+\begin_inset Formula $Q_{t}K_{t}^{b}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+K_{t}^{b}\left(Z_{t+1}+Q_{t+1}\right)>Q_{t}K_{t}^{b}\bar{R}_{t}=\left[D_{t}+N_{t}\right]\bar{R}_{t}>D_{t}\bar{R}_{t}.
+\]
+
+\end_inset
+
+That is, so long as 
+\begin_inset Formula $Z_{t+1}+Q_{t+1}$
+\end_inset
+
+ is great enough, the bank can repay all of its depositors with interest
+ 
+\begin_inset Formula $D_{t}\bar{R}_{t}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Paragraph*
+The Possibility of a Run
+\end_layout
+
+\begin_layout Standard
+Consider a case where 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Bank run solvency"
+
+\end_inset
+
+ does not hold:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+K_{t}^{b}\left(Z_{t+1}+Q_{t+1}^{*}\right)<D_{t}\bar{R}_{t}.\label{eq:Bank Run Condition}
+\end{equation}
+
+\end_inset
+
+Here, 
+\begin_inset Formula $Q_{t+1}^{*}$
+\end_inset
+
+ denotes the price that banks could sell their assets for 
+\emph on
+if they were forced to do so.
+ 
+\emph default
+It is quite possible that households could set 
+\begin_inset Formula $D_{t+1}=D_{t}$
+\end_inset
+
+, which means that banks do not have to pay out any deposits and the banking
+ system continues to operate as usual.
+ 
+\end_layout
+
+\begin_layout Standard
+If, however, households demanded all of their deposits back (i.e.
+ 
+\begin_inset Formula $D_{t+1}=0$
+\end_inset
+
+), then the banks could not pay back the deposits in full.
+ In this case they would be 
+\emph on
+insolvent
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Condition 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Bank Run Condition"
+
+\end_inset
+
+ relates not only to the solvency of the banks but also the agency problem.
+ The individual bank analog to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Bank Run Condition"
+
+\end_inset
+
+ implies that the participation constraint is not met; if a household were
+ to deposit savings with a bank in these conditions, the bank would default.
+ This is why 
+\begin_inset Formula $D_{t+1}=0$
+\end_inset
+
+ in equilibrium during the bank run.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+If this reasonsing appears to be circular then I think that's just becuase
+ it is.
+ The banks are only insolvent because 
+\begin_inset Formula $D_{t+1}=0$
+\end_inset
+
+ in equilibrium and 
+\begin_inset Formula $D_{t+1}=0$
+\end_inset
+
+ because the banks are insolvent.
+ The actual occurence (though not th probability) of a bank run is not coming
+ from the fundamentals; its a sunspot shock.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+The Probability of a Bank Run
+\end_layout
+
+\begin_layout Standard
+The above discussion shows that there is nothing within the model that dictates
+ whether a bank run will, in fact, occur or not.
+ This will have to be specified exogenously.
+ Recall that the probability of a bank run was 
+\begin_inset Formula $P_{t}$
+\end_inset
+
+.
+ We will now specify that 
+\begin_inset Formula 
+\begin{equation}
+P_{t}=1-\min\left\{ x_{t+1},1\right\} \label{eq:Probability of a bank run}
+\end{equation}
+
+\end_inset
+
+In terms of aggregate variables, the recovery rate on deposits, 
+\begin_inset Formula $x_{t+1}$
+\end_inset
+
+, is 
+\begin_inset Formula 
+\[
+x_{t+1}=\frac{\left(Z_{t+1}+Q_{t+1}^{*}\right)K_{t}^{b}}{\left(\Phi_{t}-1\right)N_{t}\bar{R}_{t}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Aside: Entrant Banks During a Run
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Bank Run Condition"
+
+\end_inset
+
+ holds then 
+\begin_inset Formula $D_{t+1}=0$
+\end_inset
+
+.
+ This implies that the 
+\begin_inset Formula $1-\sigma$
+\end_inset
+
+ banks that would have entered in 
+\begin_inset Formula $t+1$
+\end_inset
+
+ do not accept deposits until 
+\begin_inset Formula $t+2$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+This is technically convenient because it ensures that banks that are run
+ on can only sell to households.
+ It also ensures that 
+\begin_inset Formula $D_{t+1}=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Households
+\end_layout
+
+\begin_layout Standard
+Households have log utility in consumption and a per-period endowment 
+\begin_inset Formula $W_{t}^{h}=Z_{t}\omega_{t}^{h}$
+\end_inset
+
+.
+ The representative household has a budget constraint
+\begin_inset Formula 
+\[
+C_{t}^{h}+D_{t}+Q_{t}K_{t}^{h}+f\left(K_{t}^{h}\right)=W_{t}^{h}+R_{t}D_{t-1}+\left(Z_{t}+Q_{t}\right)K_{t-1}^{h}.
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $f\left(K_{t}^{h}\right):=\frac{\alpha}{2}\left(K_{t}^{h}\right)^{2}$
+\end_inset
+
+ is the price paid by a household that manages its own capital.
+\end_layout
+
+\begin_layout Standard
+Households choose deposits and capital at each period to maximize utility.
+ The FOC for deposits is, 
+\begin_inset Formula 
+\begin{equation}
+\left(1-P_{t}\right)\bar{R}_{t}\beta\frac{C_{t}^{h}}{C_{t+1}^{h}}+P_{t}\bar{R}_{t}x_{t+1}\beta\frac{C_{t}^{h}}{C_{t+1}^{*}}=1\label{eq:FOC Deposits-EQ4}
+\end{equation}
+
+\end_inset
+
+while that for capital is
+\begin_inset Formula 
+\begin{equation}
+\left(1-P_{t}\right)\beta\frac{C_{t}^{h}}{C_{t+1}^{h}}\frac{Z_{t+1}+Q_{t+1}}{Q_{t}+\alpha K_{t}^{h}}+P_{t}\beta\frac{C_{t}^{h}}{C_{t+1}^{*}}\frac{Z_{t+1}+Q_{t+1}^{*}}{Q_{t}+\alpha K_{t}^{h}}\leq1.\label{eq:FOC Capital-EQ5}
+\end{equation}
+
+\end_inset
+
+The inequality in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:FOC Capital-EQ5"
+
+\end_inset
+
+ is an equality whenever 
+\begin_inset Formula $K_{t}^{h}>0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Paragraph*
+Resource Constraint in a No-Run Equilibrium
+\end_layout
+
+\begin_layout Standard
+The resource constraint in a no-run equilibrium is 
+\begin_inset Formula 
+\begin{equation}
+C_{t}^{h}+C_{t}^{b}+\frac{\alpha}{2}\left(K_{t}^{h}\right)^{2}\leq Z_{t}+W_{t}^{h}+W_{t}^{b}.\label{eq:RC-Eq6}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+No-Run Equilibrium Conditions
+\end_layout
+
+\begin_layout Standard
+The equilibrium variables of interest are
+\begin_inset Formula 
+\[
+K_{t}^{h},\, D_{t},\, Q_{t},\,\bar{R}_{t},\, P_{t},\, C_{t}^{h},\,\Phi_{t},\, N_{t}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Case 
+\begin_inset Formula $t>2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+At each 
+\begin_inset Formula $t>2$
+\end_inset
+
+ an equilibrium path must satisfy:
+\begin_inset Formula 
+\begin{align}
+\Phi_{t} & =\frac{\beta}{\theta}\left(1-P_{t}\right)\left[\left(1-\sigma\right)+\sigma\theta\Phi_{t+1}\right]\left[\Phi_{t}\frac{Z_{t+1}+Q_{t+1}}{Q_{t}}-\bar{R}_{t}\left(\Phi_{t}-1\right)\right]\label{eq:EQ1}\\
+N_{t+1} & =\sigma N_{t}\left[\Phi_{t}\frac{Z_{t+1}+Q_{t+1}}{Q_{t}}-\bar{R}_{t}\left(\Phi_{t}-1\right)\right]+W_{t+1}^{b}\label{eq:EQ2}\\
+P_{t} & =1-x_{t+1}\label{eq:EQ3}\\
+1 & =\left(1-P_{t}\right)\bar{R}_{t}\beta\frac{C_{t}^{h}}{C_{t+1}^{h}}+P_{t}\bar{R}_{t}x_{t+1}\beta\frac{C_{t}^{h}}{C_{t+1}^{*}}\label{eq:EQ4}\\
+1 & =\left(1-P_{t}\right)\beta\frac{C_{t}^{h}}{C_{t+1}^{h}}\frac{Z_{t+1}+Q_{t+1}}{Q_{t}+\alpha K_{t}^{h}}+P_{t}\beta\frac{C_{t}^{h}}{C_{t+1}^{*}}\frac{Z_{t+1}+Q_{t+1}^{*}}{Q_{t}+\alpha K_{t}^{h}}\label{eq:EQ5}\\
+C_{t}^{h}+C_{t}^{b} & =Z_{t}+W_{t}^{h}+W_{t}^{b}-\frac{\alpha}{2}\left(K_{t}^{h}\right)^{2}\label{eq:EQ6}\\
+\Phi_{t} & =\frac{Q_{t}\left(1-K_{t}^{h}\right)}{N_{t}}\label{eq:EQ7}\\
+N_{t} & =Q_{t}\left(1-K_{t}^{h}\right)-D_{t}\label{eq:EQ8}
+\end{align}
+
+\end_inset
+
+Also recall the following auxiliary equations:
+\begin_inset Formula 
+\begin{align*}
+x_{t+1} & =\min\left\{ \frac{\left(Z_{t+1}+Q_{t+1}^{*}\right)\left(1-K_{t}^{h}\right)}{\left(\Phi_{t}-1\right)N_{t}\bar{R}_{t}},\,1\right\} \\
+C_{t}^{b} & =\frac{1-\sigma}{\sigma}\left[N_{t}-W_{t}^{b}\right]\\
+W_{t}^{h} & =Z_{t}\omega_{t}^{h}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Case 
+\begin_inset Formula $t=2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset Formula $t=2$
+\end_inset
+
+ the net worth of bankers is pinned down by
+\begin_inset Formula 
+\[
+N_{2}=W_{2}^{b}+\sigma W_{1}^{b}.
+\]
+
+\end_inset
+
+Thus, in the 
+\begin_inset Quotes eld
+\end_inset
+
+usual
+\begin_inset Quotes erd
+\end_inset
+
+ condition 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:EQ8"
+
+\end_inset
+
+ (i.e.
+ 
+\begin_inset Formula $N_{2}=Q_{2}\left(1-K_{2}^{h}\right)-D_{2}$
+\end_inset
+
+), one of 
+\begin_inset Formula $Q_{2},\, K_{2}^{h},\,\text{or }D_{2}$
+\end_inset
+
+ is pinned down given the other two variables.
+ In practice I will use this to determine 
+\begin_inset Formula $D_{2}$
+\end_inset
+
+ given 
+\begin_inset Formula $Q_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $K_{2}^{h}$
+\end_inset
+
+.
+ This means that the state vector at 
+\begin_inset Formula $t=2$
+\end_inset
+
+ is 
+\begin_inset Formula $s_{2}=\begin{bmatrix}Q_{2} & K_{2}^{h} & \bar{R}_{2}\end{bmatrix}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Moreover, we say that the bankers that 
+\begin_inset Quotes eld
+\end_inset
+
+entered
+\begin_inset Quotes erd
+\end_inset
+
+ during the bank run period in fact only enter at 
+\begin_inset Formula $t=2$
+\end_inset
+
+.
+ This ensures that 
+\begin_inset Formula $N_{1}=0$
+\end_inset
+
+.
+ It implies that the resource constraint at 
+\begin_inset Formula $t=2$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+C_{2}^{h}+C_{2}^{b}=Z_{2}+W_{2}^{h}+W_{2}^{b}+W_{1}^{b}-\frac{\alpha}{2}\left(K_{2}^{h}\right)^{2},
+\]
+
+\end_inset
+
+where, again, 
+\begin_inset Formula $W_{1}^{b}+W_{2}^{b}=\left(1-\sigma\right)\left(w_{1}^{b}+w_{2}^{b}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+This is not true.
+ Agents do not roll over at period  because--if they do roll over--banks
+ will default at .
+\end_layout
+
+\begin_layout Plain Layout
+Further, recall that the probability of a run in period 2 is zero (i.e.
+ 
+\begin_inset Formula $P_{2}=0$
+\end_inset
+
+).
+ This is because there are no deposits to be rolled over at the beginning
+ of the period; all deposits were withdrawn during the run.
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+With 
+\begin_inset Formula $P_{2}=0$
+\end_inset
+
+ the equilibrium conditions simplify substantially.
+\end_layout
+
+\begin_layout Plain Layout
+the period 2 analogs to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ4"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ5"
+
+\end_inset
+
+ are:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{align*}
+\Phi_{t} & =\frac{\beta}{\theta}\left[\left(1-\sigma\right)+\sigma\theta\Phi_{t+1}\right]\left[\Phi_{t}\frac{Z_{t+1}+Q_{t+1}}{Q_{t}}-\bar{R}_{t}\left(\Phi_{t}-1\right)\right]\\
+1 & =\bar{R}_{2}\beta\frac{C_{2}^{h}}{C_{3}^{h}}\\
+1 & =\beta\frac{C_{2}^{h}}{C_{3}^{h}}\frac{Z+Q_{3}}{Q_{2}+\alpha K_{2}^{h}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Equilibrium in a Bank Run
+\end_layout
+
+\begin_layout Standard
+Key to solving the above set of equation are the values 
+\begin_inset Formula $Q_{t+1}^{*}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{t}^{*}$
+\end_inset
+
+.
+ In order to make the bank run state the same at all periods,
+\emph on
+ assume 
+\emph default
+that 
+\begin_inset Formula 
+\[
+Z_{t}=Z,\, W_{t}^{h}=W^{h},\, W_{t}^{b}=W^{b}\;\forall t.
+\]
+
+\end_inset
+
+The main exercise here considers a case when a run 
+\emph on
+actually
+\emph default
+ occurs at 
+\begin_inset Formula $t=1$
+\end_inset
+
+ but agents are aware of the possibility of a run at later periods (that
+ never actually precipitates).
+\end_layout
+
+\begin_layout Standard
+Thus, suppose there is a bank run at 
+\begin_inset Formula $t=1$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $D_{1}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $K_{1}^{h}=1$
+\end_inset
+
+.
+ Thus, the resource constraint simplifies to
+\begin_inset Formula 
+\[
+C_{1}^{h*}=Z_{1}+W_{1}^{h}-\frac{\alpha}{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Further, since bankers have no deposits to default on in period 2, the probabili
+ty of a default in period 1 is zero: 
+\begin_inset Formula $P_{1}=0$
+\end_inset
+
+.
+ From condition 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:EQ5"
+
+\end_inset
+
+--the household deposit FOC--this implies
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+1=\beta\frac{C^{h*}}{C_{2}^{h}}\frac{Z+Q_{2}}{Q_{1}^{*}+\alpha}.\label{eq:Q* sln condition}
+\end{equation}
+
+\end_inset
+
+Condition 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Q* sln condition"
+
+\end_inset
+
+ will determine whether we have a numeric solution or not.
+\end_layout
+
+\begin_layout Subsection
+Parameter Values
+\end_layout
+
+\begin_layout Standard
+All that follows is based on the following set of parameter values:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{c}
+\alpha=0.008,\;\theta=0.193,\;\sigma=.95,\;\beta=0.99\\
+W^{h}=0.045,\; W^{b}=0.00148/10,\; Z=0.0126.
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Steady-State-Solution"
+
+\end_inset
+
+Steady State Solution
+\end_layout
+
+\begin_layout Standard
+There are two cases of interest for the steady state: 
+\begin_inset Formula $x\geq1$
+\end_inset
+
+ and 
+\begin_inset Formula $x<1$
+\end_inset
+
+.
+ Which of these cases applies depends in turn on 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+, which will take on a single value in equilibrium but may take on many
+ different values as we iterate to a solution.
+ 
+\end_layout
+
+\begin_layout Standard
+The script 
+\family typewriter
+ssEqnSet
+\family default
+ sets up the steady state equations for both cases.
+ Script 
+\family typewriter
+xGt1SS
+\family default
+ finds and confirms the uniqueness of the steady state for when 
+\begin_inset Formula $x\geq1$
+\end_inset
+
+.
+ For the case with 
+\begin_inset Formula $x<1$
+\end_inset
+
+ the function 
+\family typewriter
+ssFindLt
+\family default
+ finds the steady state vector for a given 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+.
+ The main script for investigating the steady states is 
+\family typewriter
+ssMapExplore
+\family default
+.
+\end_layout
+
+\begin_layout Subsection
+Case 
+\begin_inset Formula $x>1$
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+See 
+\family typewriter
+xGtSS
+\family default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset Formula $x>1$
+\end_inset
+
+ we have 
+\begin_inset Formula $P_{ss}=0$
+\end_inset
+
+.
+ From 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:EQ1"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:EQ8"
+
+\end_inset
+
+ one can see that the asset price in a run 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ only enters the system of equilibrium equations in cases where 
+\begin_inset Formula $P_{ss}\neq0$
+\end_inset
+
+.
+ Thus, the steady state for this case will only indirectly depend on the
+ choice of 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Solving the system yields the following steady state vector of state variables:
+\begin_inset Formula 
+\begin{equation}
+\begin{bmatrix}Q_{gt} & K_{gt}^{h} & D_{gt} & \bar{R}_{gt}\end{bmatrix}:=\begin{bmatrix}1.0497, & 0.2480, & 0.7512, & 1.0101\end{bmatrix}.\label{eq:SS gt State Vector}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As alluded to above, this steady state is not entirely independent of 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+.
+ This is because 
+\begin_inset Formula $x$
+\end_inset
+
+ itself depends on both 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ and the state vector.
+ In order for 
+\begin_inset Formula $x\geq1$
+\end_inset
+
+ we must therefore have
+\begin_inset Formula 
+\begin{equation}
+x=\frac{\left(Z+Q^{*}\right)\left(1-K_{gt}^{h}\right)}{D_{gt}\cdot\bar{R}_{gt}}\geq1.\label{eq:x gt 1 condition}
+\end{equation}
+
+\end_inset
+
+Plugging the values from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:SS gt State Vector"
+
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:x gt 1 condition"
+
+\end_inset
+
+ and solving for 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ we find a value for 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ such that this inequality holds:
+\begin_inset Formula 
+\begin{equation}
+\underbar{Q}_{gt}^{*}=0.9965.\label{eq:qGtMin}
+\end{equation}
+
+\end_inset
+
+Thus, for all 
+\begin_inset Formula $Q^{*}<\underbar{Q}_{gt}^{*}$
+\end_inset
+
+ we only need to worry about one steady state.
+ In examining the case 
+\begin_inset Formula $x<1$
+\end_inset
+
+ we will also find that 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:SS gt State Vector"
+
+\end_inset
+
+ is the unique feasible steady state for all 
+\begin_inset Formula $Q^{*}\geq\underbar{Q}_{gt}^{*}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Case 
+\begin_inset Formula $x<1$
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Prototyped in 
+\family typewriter
+ssFindLtProto.m
+\family default
+.
+ General function in 
+\family typewriter
+ssFindLt.m
+\family default
+.
+ General function tested in 
+\family typewriter
+ssFindLtTest.m
+\family default
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset Formula $x<1$
+\end_inset
+
+ the solution will depend in a direct manner on 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ because 
+\begin_inset Formula $P_{ss}>0$
+\end_inset
+
+.
+ Thus, this case is slightly more complicated than the previous one.
+ To find a steady state for this case we will make use of 
+\family typewriter
+fsolve
+\family default
+.
+ One potential problem with blindly using 
+\family typewriter
+fsolve
+\family default
+ here is that the solution must satisfy several non-linear inequalities.
+ One way to increase the probability that the solution returned by the solver
+ satisfies these constraints is by submitting an initial guess that itself
+ satisfies the inequalities.
+ A procedure for doing just this is outlined first.
+ Then we discuss the solution.
+\end_layout
+
+\begin_layout Subsubsection
+Choosing an 
+\family typewriter
+s0
+\end_layout
+
+\begin_layout Standard
+In order to find a solution that is feasible it seems advisable to submit
+ an initial guess that is itself feasible.
+ That is, an 
+\family typewriter
+s0
+\family default
+ that satisfies:
+\begin_inset Formula 
+\begin{align*}
+\frac{\left(Z+Q^{*}\right)\left(1-K^{h}\right)}{D\cdot\bar{R}} & <1 & \left[x\right]\\
+\frac{1-\sigma}{\sigma}\left[Q\left(1-K^{h}\right)-D-W^{b}\right] & \geq0 & \left[C^{b}\right]\\
+Z+W^{h}+W^{b}-\frac{\alpha}{2}\left(K^{h}\right)^{2}-\frac{1-\sigma}{\sigma}\left[Q\left(1-K^{h}\right)-D-W^{b}\right] & \geq0 & \left[C^{h}\right]\\
+\frac{Z+Q}{Q}-\bar{R} & >0 & \left[\text{Leverage}\right]\\
+\frac{Z+Q}{Q}-\bar{R} & <\theta & \left[\mbox{No-default}\right]\\
+Q,\, K^{h},\, D,\,\bar{R} & \geq0 & \left[s\right]\\
+K^{h} & \leq1
+\end{align*}
+
+\end_inset
+
+Non-negativity constraints for 
+\begin_inset Formula $N$
+\end_inset
+
+ and 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ are excluded because these are superseded by 
+\begin_inset Formula $\left[C^{b}\right]$
+\end_inset
+
+.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+These are 
+\begin_inset Formula $Q\left(1-K^{h}\right)-D\geq0$
+\end_inset
+
+ for 
+\begin_inset Formula $N$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{Q\left(1-K^{h}\right)}{Q\left(1-K^{h}\right)-D}\geq0$
+\end_inset
+
+ for 
+\begin_inset Formula $\Phi$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+I will begin by drawing a 
+\begin_inset Formula $K_{0}^{h}\in\left[\underline{K}^{h},\bar{K}^{h}\right]\subset\left[0,1\right]$
+\end_inset
+
+.
+ Then I will set 
+\begin_inset Formula $x_{0}\in\left(0,1\right)$
+\end_inset
+
+.
+ This will 
+\begin_inset Formula $\bar{R}$
+\end_inset
+
+ in terms of 
+\begin_inset Formula $D$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\bar{R}\left(D\right)=\frac{\left(Z+Q^{*}\right)\left(1-K_{0}^{h}\right)}{D\cdot x_{0}}.
+\]
+
+\end_inset
+
+Set 
+\begin_inset Formula $C_{0}^{b}:=\kappa_{1}\left[Z+W^{h}+W^{b}-\frac{\alpha}{2}\left(K_{0}^{h}\right)^{2}\right]$
+\end_inset
+
+ where 
+\begin_inset Formula $\kappa_{1}\in\left[0,1\right]$
+\end_inset
+
+ is an arbitrary constant.
+ Then get 
+\begin_inset Formula $Q$
+\end_inset
+
+ in terms of 
+\begin_inset Formula $D$
+\end_inset
+
+ and 
+\begin_inset Formula $K^{h}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+Q\left(D\right) & =\frac{D+W^{b}+\frac{\sigma}{1-\sigma}C_{0}^{b}}{1-K_{0}^{h}}.
+\end{align*}
+
+\end_inset
+
+Finally, see if there is a 
+\begin_inset Formula $D$
+\end_inset
+
+ such that 
+\begin_inset Formula $\frac{Z+Q\left(D\right)}{Q\left(D\right)}-\bar{R}\left(D\right)=\kappa_{2}\theta$
+\end_inset
+
+, where 
+\begin_inset Formula $\kappa_{2}\in\left(0,1\right)$
+\end_inset
+
+ is an arbitrary constant.
+ The roots of this problem can be shown to be
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{align*}
+\frac{Z+Q\left(D\right)}{Q\left(D\right)}-\bar{R}\left(D\right) & =\kappa_{2}\theta\\
+\frac{\overbrace{Z\cdot\left(1-K_{0}^{h}\right)+W^{b}+\frac{\sigma}{1-\sigma}C_{0}^{b}}^{:=\mca}+D}{D+\underbrace{W^{b}+\frac{\sigma}{1-\sigma}C_{0}^{b}}_{:=\mcb}}-\frac{\overbrace{\left(Z+Q^{*}\right)\left(1-K_{0}^{h}\right)}^{:=\mce}}{D\cdot x_{0}} & =\kappa_{2}\theta\\
+\frac{\mca+D}{D+\mcb}-\frac{\mce}{D\cdot x_{0}} & =\kappa_{2}\theta\\
+Dx_{0}\left[\mca+D\right]-\mce\left[D+\mcb\right] & =D\cdot x_{0}\kappa_{2}\theta\left[D+\mcb\right]\\
+Dx_{0}\mca+D^{2}x_{0}-D\mce-\mcb\mce & =D^{2}\cdot x_{0}\kappa_{2}\theta+D\cdot x_{0}\kappa_{2}\theta\mcb\\
+D^{2}\cdot x_{0}\left[1-\kappa_{2}\theta\right]+D\cdot x_{0}\left[\mca-\mce-\kappa_{2}\theta\mcb\right]-\mce\mcb & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D\in\frac{-\left[\mca-\mce-\kappa_{2}\theta\mcb\right]\pm\left\{ \left[\mca-\mce-\kappa_{2}\theta\mcb\right]^{2}+4x_{0}\left[1-\kappa_{2}\theta\right]\mce\mcb\right\} ^{\frac{1}{2}}}{2x_{0}\left[1-\kappa_{2}\theta\right]}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From this one can see that sufficient conditions for 
+\begin_inset Formula $D$
+\end_inset
+
+ to have a positive root is that 
+\begin_inset Formula $\mca-\mce-\kappa_{2}\theta\mcb<0$
+\end_inset
+
+ and 
+\begin_inset Formula $\kappa_{2}<1/\theta$
+\end_inset
+
+.
+ But since 
+\begin_inset Formula $\kappa_{2}<1<1/\theta$
+\end_inset
+
+ by assumption, this latter condition is automatically satisfied.
+ 
+\end_layout
+
+\begin_layout Standard
+The function 
+\family typewriter
+ssLtInitDraw
+\family default
+ carries out a brute force guess-and-check version of the above procedure.
+\end_layout
+
+\begin_layout Subsection
+Solving for the Steady State
+\end_layout
+
+\begin_layout Standard
+To find the actual steady state we will first use 
+\family typewriter
+ssLtInitDraw
+\family default
+ to find a good initial guess, plug the guess into 
+\family typewriter
+fsolve
+\family default
+, then check to see if the solution satisfies the constraints.
+ If it doesn't the process will be repeated.
+ This turns out to be a fairly quick process: a steady state can be found
+ in about 0.10 seconds.
+ 
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ssMapping"
+
+\end_inset
+
+ shows the mapping from 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ to the steady state variables.
+ I find that the steady state at each 
+\begin_inset Formula $Q^{*}<\underbar{Q}_{gt}^{*}$
+\end_inset
+
+ is unique.
+ Moreover, for all 
+\begin_inset Formula $Q^{*}>\underbar{Q}_{gt}^{*}$
+\end_inset
+
+ I find that the proposed solution fails to satisfy the requirement that
+ 
+\begin_inset Formula $x<1$
+\end_inset
+
+.
+ Therefore, moving forward it is only necessary to consider one steady state
+ for each 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename code/paperObjects/ssMapping.eps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ssMapping"
+
+\end_inset
+
+Mapping from 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ to the Steady State Variables
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\size scriptsize
+The horizontal axis for all subfigures is 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+.
+ The dots represent individual points at which the steady state was found.
+ The mapping is constant for all 
+\begin_inset Formula $Q^{*}>0.995$
+\end_inset
+
+, the point after which 
+\begin_inset Formula $x\geq1$
+\end_inset
+
+.
+ The 45 degree line in the 
+\begin_inset Formula $Q_{ss}$
+\end_inset
+
+ subfigure demonstrates that, for all 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ in a 
+\begin_inset Quotes eld
+\end_inset
+
+reasonable
+\begin_inset Quotes erd
+\end_inset
+
+ range, 
+\begin_inset Formula $Q_{ss}>Q^{*}$
+\end_inset
+
+.
+ This is a necessary requirement of a solution because 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+must reflects the return to households from holding capital while 
+\begin_inset Formula $Q_{ss}$
+\end_inset
+
+ predominantly reflects the return to banks from holding capital.
+ By assumption the return on capital to banks is greater than that to households.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Solving for the Equilibrium Path
+\end_layout
+
+\begin_layout Standard
+The method I employ to find the equilibrium path can be thought of as 
+\begin_inset Quotes eld
+\end_inset
+
+shooting backwards
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The basic idea is to begin at a point near the steady state and solve the
+ system backwards analytically until banker net worth equals the period
+ 2 banker net worth, 
+\begin_inset Formula $N_{2}=\left(1+\sigma\right)W^{b}$
+\end_inset
+
+.
+ The period 1 condition 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Q* sln condition"
+
+\end_inset
+
+ is then checked and we iterate to a solution.
+\end_layout
+
+\begin_layout Standard
+Two key problems must be solved to make the method work.
+ First, a way of iterating backwards must be found.
+ In Subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Solving-Backwards"
+
+\end_inset
+
+ I show that the problem can be reduced to finding the roots of a polynomial
+ in 
+\begin_inset Formula $K_{t}^{h}$
+\end_inset
+
+ whose coefficients are determined by 
+\begin_inset Formula $\left\{ Q_{t+1},\, K_{t+1}^{h},\, D_{t+1},\,\bar{R}_{t+1}\right\} $
+\end_inset
+
+ and the run price 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+.
+ Second, one has to choose an initial state vector to ensure that the backwards
+ solution will terminate with 
+\begin_inset Formula $N_{2}=\left(1+\sigma\right)W^{b}$
+\end_inset
+
+.
+ In Subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Hitting (1+sig)Wb"
+
+\end_inset
+
+ I show that this problem can be reduced to a one-dimensional interpolation
+ problem.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Solving-Backwards"
+
+\end_inset
+
+Solving Backwards
+\end_layout
+
+\begin_layout Standard
+Suppose that we have a vector of state variables 
+\begin_inset Formula $\left\{ Q_{t+1},\, K_{t+1}^{h},\, D_{t+1},\,\bar{R}_{t+1}\right\} $
+\end_inset
+
+ for 
+\begin_inset Formula $t>2$
+\end_inset
+
+ in addition to a run price 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+.
+ This section will show how to find the vector of state variables in the
+ 
+\emph on
+previous 
+\emph default
+period, 
+\begin_inset Formula $\left\{ Q_{t},\, K_{t}^{h},\, D_{t},\,\bar{R}_{t}\right\} $
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Simplifying the System
+\end_layout
+
+\begin_layout Standard
+Return to considering the system of equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ1"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ8"
+
+\end_inset
+
+.
+ Equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ3"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ6"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ7"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ8"
+
+\end_inset
+
+ yield solutions for 
+\begin_inset Formula $P_{t},\, C_{t}^{h},\,\Phi_{t},\,\text{and }N_{t}$
+\end_inset
+
+ that can be substituted into 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ1"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ2"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ4"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ5"
+
+\end_inset
+
+.
+ In a like manner the next period 
+\begin_inset Formula $\left(t+1\right)$
+\end_inset
+
+ counterparts of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ6"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ7"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ8"
+
+\end_inset
+
+ can be used to substitute 
+\begin_inset Formula $Q_{t+1},\, K_{t+1}^{h},\, D_{t+1},\,\bar{R}_{t+1}$
+\end_inset
+
+ for 
+\begin_inset Formula $C_{t+1}^{h},\,\Phi_{t+1},\,\text{and }N_{t+1}$
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ1"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ2"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ4"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ5"
+
+\end_inset
+
+.
+ We now have a set of four equations (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ1"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ2"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ4"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ5"
+
+\end_inset
+
+) parametrized by 
+\begin_inset Formula $Q_{t+1},\, K_{t+1}^{h},\, D_{t+1},\,\bar{R}_{t+1}$
+\end_inset
+
+ and 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+.
+ This set can be used to solve for the four unknowns 
+\begin_inset Formula $\left\{ Q_{t},\, K_{t}^{h},\, D_{t},\,\bar{R}_{t}\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+While the above set of equations can be solved with, e.g., 
+\family typewriter
+fsolve
+\family default
+, time savings can be achieved with a further simplification.
+ Using 
+\family typewriter
+MATLAB
+\family default
+'s symbolic toolbox one can solve 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ1"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ2"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ4"
+
+\end_inset
+
+ for 
+\begin_inset Formula $Q_{t},\, D_{t},\,\bar{R}_{t}$
+\end_inset
+
+ as a function of 
+\begin_inset Formula $K_{t}^{h}$
+\end_inset
+
+ and the parameters 
+\begin_inset Formula $Q_{t+1},\, K_{t+1}^{h},\, D_{t+1},\,\bar{R}_{t+1}$
+\end_inset
+
+ and 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+.
+ Once this is done the solutions for 
+\begin_inset Formula $Q_{t},\, D_{t},\,\bar{R}_{t}$
+\end_inset
+
+ may be substituted into 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ5"
+
+\end_inset
+
+.
+ We now have one equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ5"
+
+\end_inset
+
+ in one unknown--
+\begin_inset Formula $K_{t}^{h}$
+\end_inset
+
+.
+ This is now a rootfinding problem.
+ That is, denoting the error function form of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ5"
+
+\end_inset
+
+ by 
+\begin_inset Formula $H\left(k\,;\, Q_{t+1},\, K_{t+1}^{h},\, D_{t+1},\,\bar{R}_{t+1},\, Q^{*}\right)$
+\end_inset
+
+, a solution 
+\begin_inset Formula $K_{t}^{h}$
+\end_inset
+
+ must satisfy 
+\begin_inset Formula 
+\[
+H\left(k\,;\, Q_{t+1},\, K_{t+1}^{h},\, D_{t+1},\,\bar{R}_{t+1},\, Q^{*}\right)=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Finding-and-Excluding-Roots"
+
+\end_inset
+
+Finding and Excluding Roots
+\end_layout
+
+\begin_layout Standard
+The general expression for 
+\begin_inset Formula $H\left(k\,;\, Q_{t+1},\, K_{t+1}^{h},\, D_{t+1},\,\bar{R}_{t+1},\, Q^{*}\right)$
+\end_inset
+
+ is unwieldy.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+How unwieldy? If you want to see the whole thing you'll need to allow 
+\family typewriter
+MATLAB
+\family default
+ to print more than 25,000 characters in one go.
+ The numerical counterpart to it created using 
+\family typewriter
+matlabFunction
+\family default
+ is 373kb (compared to maybe 6kb for a more-involved human-generated function).
+ Also, if you convert it into a function using 
+\family typewriter
+matlabFunction
+\family default
+ be sure to set the option 
+\family typewriter
+optimize
+\family default
+ to 
+\family typewriter
+false
+\family default
+.
+ 
+\end_layout
+
+\end_inset
+
+ However, plugging in numbers for the parameters one finds that 
+\begin_inset Formula $H$
+\end_inset
+
+ has a rather tractable form.
+ In particular, 
+\begin_inset Formula $H$
+\end_inset
+
+ is a fraction with fourth-order polynomials of 
+\begin_inset Formula $k$
+\end_inset
+
+ in the numerator and denominator, i.e.
+\begin_inset Formula 
+\begin{equation}
+H\left(k\,;\, Q_{t+1},\, K_{t+1}^{h},\, D_{t+1},\,\bar{R}_{t+1},\, Q^{*}\right)=\frac{\eta_{4}k^{4}+\eta_{3}k^{3}+\eta_{2}k^{2}+\eta_{1}k+\eta_{0}}{\delta_{4}k^{4}+\delta_{3}k^{3}+\delta_{2}k^{2}+\delta_{1}k+\delta_{0}},\label{eq:H in numden form}
+\end{equation}
+
+\end_inset
+
+where the 
+\begin_inset Formula $\eta_{i}$
+\end_inset
+
+'s and 
+\begin_inset Formula $\delta_{j}$
+\end_inset
+
+'s are functions of 
+\begin_inset Formula $Q_{t+1},\, K_{t+1}^{h},\, D_{t+1},\,\bar{R}_{t+1},\,\text{and }Q^{*}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+With the exception of one special but pertinent case, the roots of 
+\begin_inset Formula $H$
+\end_inset
+
+ will therefore just be the roots of the numerator polynomial of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:H in numden form"
+
+\end_inset
+
+.
+ These roots may be solved for analytically using the 
+\family typewriter
+roots
+\family default
+ function.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The 
+\family typewriter
+roots
+\family default
+ function takes as arguments the coefficients of the polynomial.
+ It turns out that there are a few nice functions for extracting this informatio
+n from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:H in numden form"
+
+\end_inset
+
+ when the coefficients are still in their general, symbolic form.
+ First, use the 
+\family typewriter
+numden
+\family default
+ function to separate the numerator and denominator of 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Then use the 
+\family typewriter
+coeffs
+\family default
+ function to extract the coefficients from 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ In this last step it is necessary to specify that the argument of the polynomia
+l is 
+\begin_inset Formula $k$
+\end_inset
+
+ (i.e.
+ 
+\family typewriter
+coeffs(H,k)
+\family default
+ rather than just 
+\family typewriter
+coeffs(H)
+\family default
+).
+ This will yield a 4x1 symbolic expression in terms of 
+\begin_inset Formula $\left\{ Q_{t+1},\, K_{t+1}^{h},\, D_{t+1},\,\bar{R}_{t+1},\, Q^{*}\right\} $
+\end_inset
+
+.
+ Finally, use 
+\family typewriter
+matlabFunction
+\family default
+ to save the coefficients as a numerical function with arguments 
+\begin_inset Formula $\left\{ Q_{t+1},\, K_{t+1}^{h},\, D_{t+1},\,\bar{R}_{t+1},\, Q^{*}\right\} $
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ The special but pertinent case mentioned above occurs when the numerator
+ and denominator have roots at the same point.
+ While it isn't immediately clear to me how we ought to evaluate 
+\begin_inset Formula $0/0$
+\end_inset
+
+ I think it is clear that 
+\begin_inset Formula $0/0\neq0$
+\end_inset
+
+.
+ Thus, this isn't a legitimate root.
+ 
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:hRootsDemo"
+
+\end_inset
+
+ shows a prototypical example of the 
+\begin_inset Formula $H$
+\end_inset
+
+ function.
+ One can see that the numerator polynomial has two roots.
+ However, the 
+\begin_inset Formula $H$
+\end_inset
+
+ function only has one root.
+ This is explained by the fact that the denominator polynomial has a root
+ that coincides with the numerator polynomial.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename code/paperObjects/HrootsDemo.eps
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:hRootsDemo"
+
+\end_inset
+
+Example of 
+\begin_inset Formula $H\left(k\,:\, Q_{t+1},\, K_{t+1}^{h},\, D_{t+1},\,\bar{R}_{t+1},\, Q^{*}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+
+\size footnotesize
+The true root is at approximately 
+\begin_inset Formula $k=0.2979$
+\end_inset
+
+ while the phony root is at 
+\begin_inset Formula $k=0.952$
+\end_inset
+
+.
+ The 
+\begin_inset Quotes eld
+\end_inset
+
+squiggle
+\begin_inset Quotes erd
+\end_inset
+
+ in the blue/yellow lines at 
+\begin_inset Formula $k=0.952$
+\end_inset
+
+ reflects a combination of numerical imprecision (as the denominator goes
+ to zero) and the discontinuity at approximately 
+\begin_inset Formula $k=0.952$
+\end_inset
+
+, the shared, phony root.
+ The solid blue line is the 
+\begin_inset Formula $H$
+\end_inset
+
+ function while the dashed yellow line is the red line (numerator of 
+\begin_inset Formula $H$
+\end_inset
+
+) divided by the purple line (denominator of 
+\begin_inset Formula $H$
+\end_inset
+
+).
+ The point of plotting these two lines is to show that the decomposition
+ of 
+\begin_inset Formula $H$
+\end_inset
+
+ into numerator and denominator parts is, in fact, correct.
+ We plot 
+\begin_inset Formula $k\in\left[0,1\right]$
+\end_inset
+
+ w.l.o.g.
+ because total capital in the economy is 1 and 
+\begin_inset Formula $K_{t}^{h}\geq0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+generated in kRootsBackTest.m
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Files and Pseudocode
+\end_layout
+
+\begin_layout Standard
+The main function for the solving backwards step is 
+\family typewriter
+backSolve
+\family default
+.
+ It has three principle child functions: 
+\family typewriter
+kRootsBack
+\family default
+, 
+\family typewriter
+SvGt2[G,L]t1
+\family default
+, and 
+\family typewriter
+NlCon[Gt,Eq]2[GL]t1
+\family default
+.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+That is, there are two separate functions called 
+\family typewriter
+SvGt2Lt1
+\family default
+ and 
+\family typewriter
+SvGt2Gt1
+\family default
+.
+ Each deals with the case when 
+\begin_inset Formula $x_{t+1}$
+\end_inset
+
+ is 
+\emph on
+Less than
+\emph default
+ and 
+\emph on
+Greater than
+\emph default
+ 
+\emph on
+1
+\emph default
+, respectively.
+\end_layout
+
+\end_inset
+
+ Function 
+\family typewriter
+kRootsBack
+\family default
+ solves the rootfinding problem discussed in Subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Finding-and-Excluding-Roots"
+
+\end_inset
+
+.
+ The key child functions in kRootsBack return the expressions for the coefficien
+ts in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:H in numden form"
+
+\end_inset
+
+.
+ These functions follow the naming convention 
+\family typewriter
+Kc[Gt,Eq]t2[G,L]t1
+\family default
+ for the numerator and 
+\family typewriter
+Kdc[Gt,Eq]2[GL]t1
+\family default
+ for the denominator.
+ Function 
+\family typewriter
+SvGt2[G,L]t1 
+\family default
+returns the full state vector 
+\begin_inset Formula $\left\{ Q_{t},\, K_{t}^{h},\, D_{t},\,\bar{R}_{t}\right\} $
+\end_inset
+
+ once the root 
+\begin_inset Formula $K_{t}^{h}$
+\end_inset
+
+ is found with 
+\family typewriter
+kRootsBack
+\family default
+.
+ Functions of the form 
+\family typewriter
+NlCon[Gt,Eq]2[GL]t1
+\family default
+ checks the set of constraints .
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Add set of NL constraints to be checked in the exposition above.
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+The functions 
+\family typewriter
+SvGt2[G,L]t1 
+\family default
+and 
+\family typewriter
+Kc[d][Gt,Eq]2[GL]t1 
+\family default
+are generated automatically using 
+\family typewriter
+matlabFunction
+\family default
+.
+ The scripts in which the system is solved, substituted, and simplified
+ for each case follow the naming convention 
+\family typewriter
+solve[Gt,Eq]2[G,L]1.
+\end_layout
+
+\begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Solving-Backwards"
+
+\end_inset
+
+ demonstrates the basic method for solving backwards.
+ 
+\family typewriter
+kRootsBack 
+\family default
+is straightforward: it takes 
+\begin_inset Formula $\left[Q_{t+1},\, K_{t+1}^{h},\, D_{t+1},\,\bar{R}_{t+1},\, Q^{*}\right]$
+\end_inset
+
+ and returns the coefficients from the polynomials in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:H in numden form"
+
+\end_inset
+
+.
+ It then uses the 
+\family typewriter
+roots 
+\family default
+function to retrieve the set of roots and find the appropriate root.
+ We then get the full period 
+\begin_inset Formula $t$
+\end_inset
+
+ state vector by calling 
+\family typewriter
+SvGt2[G,L]t1.
+ 
+\family default
+Next we check that all of the constraints on the set of period 
+\begin_inset Formula $t$
+\end_inset
+
+ equilibrium values are satisfied by the proposed solution.
+ This step should be a formality unless one goes out of one's way to find
+ a pathological case.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+An earlier draft of this function was in some ways more robust because it
+ accommodated cases where 
+\begin_inset Formula $x_{t+1}>1$
+\end_inset
+
+ for some periods and 
+\begin_inset Formula $x_{t'+1}<1$
+\end_inset
+
+ for others without returning an error.
+ In the current exercise finding that 
+\begin_inset Formula $x_{t+1}$
+\end_inset
+
+ switched cases is probably more indicative of a bug in the code rather
+ than a part of a legitimate solution so the strategy of returning an error
+ when this case arises then determining whether it is, in fact, an error
+ is probably a safe way of doing things here.
+ In any case, this doesn't seem to be an issue in the final iteration of
+ the code.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The final step is the only new part and the convention established here
+ will be useful in the next path.
+ 
+\family typewriter
+backSolve 
+\family default
+is agnostic about how many periods will elapse between the initial position
+ on the path and a state vector that will [hopefully] correspond to the
+ period 2 state vector.
+ The key to determining if the solution path has hit or overshot the period
+ 2 state vector is to find the banker net worth at each period.
+ We know that at 
+\begin_inset Formula $t=2$
+\end_inset
+
+ banker net worth is 
+\begin_inset Formula $N_{2}=\left(1+\sigma\right)W^{b}$
+\end_inset
+
+ and, in general, 
+\begin_inset Formula $N_{t}=Q_{t}\left(1-K_{t}^{h}\right)-D_{t}$
+\end_inset
+
+.
+ Under the conjecture that banker net worth is greater than 
+\begin_inset Formula $\left(1+\sigma\right)W^{b}$
+\end_inset
+
+ for all 
+\begin_inset Formula $t>2$
+\end_inset
+
+ along the equilibrium path, we can say that period 2 has been overshot
+ whenever the 
+\begin_inset Formula $Q_{t}\left(1-K_{t}^{h}\right)-D_{t}<\left(1+\sigma\right)W^{b}.$
+\end_inset
+
+ We then cut off all remaining rows in the 
+\family typewriter
+sp 
+\family default
+matrix of state variables and return the matrix.
+ 
+\end_layout
+
+\begin_layout Standard
+The key to finding a 
+\emph on
+useful
+\emph default
+ backwards solution path for a given 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ is to find a way to make the period 2 banker net worth actually hit the
+ correct net worth: 
+\begin_inset Formula $Q_{2}\left(1-K_{2}^{h}\right)-D_{2}=N_{2}=\left(1+\sigma\right)W^{b}$
+\end_inset
+
+.
+ This can be done by choosing an appropriate initial state vector 
+\begin_inset Formula $[Q_{0},\, K_{0}^{h},\, D_{0},\,\bar{R}_{0}]$
+\end_inset
+
+ as an input to 
+\family typewriter
+backSolve
+\family default
+.
+ This is the process that will be described in Subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Hitting (1+sig)Wb"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout LyX-Code
+
+\series bold
+INPUT
+\series default
+: Initial state vector 
+\begin_inset Formula $[Q_{0},\, K_{0}^{h},\, D_{0},\,\bar{R}_{0}]$
+\end_inset
+
+, Run Price 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+% Initialize output and time variables
+\end_layout
+
+\begin_layout LyX-Code
+sp = -100*ones(1000,4);  % Matrix of state values 
+\end_layout
+
+\begin_layout LyX-Code
+sp(1000,:) = 
+\begin_inset Formula $[Q_{0},\, K_{0}^{h},\, D_{0},\,\bar{R}_{0}]$
+\end_inset
+
+; % Begin at input vector
+\end_layout
+
+\begin_layout LyX-Code
+t = 999;                 % Period to be solved 
+\end_layout
+
+\begin_layout LyX-Code
+endLoop = 0;             % Stop while loop
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+while 
+\series default
+t > 2 & endLoop == 0
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+% Find the state vector at t
+\end_layout
+
+\begin_layout LyX-Code
+root = kRootsBack(sp(t+1,:),
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+,t);     % Find root 
+\end_layout
+
+\begin_layout LyX-Code
+sp(t,:) = SvGt2Lt1(sp(t+1,:),root,
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+); % Find state vector at t
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+% Check that constraints hold 
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+if 
+\series default
+NlConGt2(sp(t,:),
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+) == 0
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+
+\series bold
+return;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+
+\series bold
+endif
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+% Check if banker net worth greater than banker net worth at t = 2
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+if 
+\series default
+
+\begin_inset Formula $Q_{t}\left(1-K_{t}^{h}\right)-D_{t}>\left(1+\sigma\right)W^{b}$
+\end_inset
+
+            % If not, continue.
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+t = t - 1;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+
+\series bold
+else                                    
+\series default
+% If is, stop.
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+sp = sp(t:end,:);
+\end_layout
+
+\begin_layout LyX-Code
+endLoop = 1;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+
+\series bold
+endif
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+
+\series bold
+endwhile
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+Output: 
+\series default
+sp
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Solving-Backwards"
+
+\end_inset
+
+Solving Backwards
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Hitting (1+sig)Wb"
+
+\end_inset
+
+Hitting 
+\begin_inset Formula $\left(1+\sigma\right)W^{b}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The last subsection demonstrated an economical method for finding the path
+ of the system 
+\emph on
+given an initial state vector and 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+.
+ 
+\emph default
+We now discuss how to find an initial state vector 
+\emph on
+given 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+.
+ 
+\emph default
+Ideal initial state vectors will generate state vector paths that a) appear
+ to converge to the relevant steady state and b) satisfy the banker net
+ worth requirement at period 2: 
+\begin_inset Formula $Q_{2}\left(1-K_{2}^{h}\right)-D_{2}=N_{2}=\left(1+\sigma\right)W^{b}$
+\end_inset
+
+.
+ The first requirement provides guidance on the neighborhood around which
+ solutions ought to be sought out--within some (ideally arbitrarily small)
+ 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+-ball of the steady state.
+ The second can be used to evaluate whether the path generated by a particular
+ initial state vector is a good candidate solution path.
+ This subsection first discusses the set of initial state vectors that are
+ searched.
+ It then discusses a fairly quick
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+I think.
+\end_layout
+
+\end_inset
+
+ method for finding an initial state vector that satisfies the period 2
+ requirement.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:The-Set-of-initial-state-vectors"
+
+\end_inset
+
+The Set of Initial State Vectors
+\end_layout
+
+\begin_layout Standard
+An initial state vector will ideally be as close to the steady state associated
+ with the given 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ as possible.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+And it can't be equal to the steady state because the backwards solution
+ to the steady state vector is...the steady state.
+ 
+\end_layout
+
+\end_inset
+
+ One would think that the ideal would be to make the initial value of a
+ state variable just below the steady state if it approaches from below
+ and likewise if it approaches from above.
+ But we don't know this information unless we already know the solution
+ paths.
+ Even if we did know the trajectories of the solution paths--as was the
+ case here--we don't know if the trajectories are the same for all paths
+ associated with all the 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ that will have to be found en route to a solution.
+ 
+\end_layout
+
+\begin_layout Standard
+The approach taken here is to do a first order expansion of the state vector
+ solution about the steady state.
+ Consider a function 
+\begin_inset Formula $G$
+\end_inset
+
+ that maps 
+\begin_inset Formula $\left\{ \left[Q_{t+1},\, K_{t+1}^{h},\, D_{t+1},\,\bar{R}_{t+1}\right],K_{t}^{h},\, Q^{*}\right\} $
+\end_inset
+
+ to the period 
+\begin_inset Formula $t$
+\end_inset
+
+ state vector 
+\begin_inset Formula $\left[Q_{t},\, K_{t}^{h},\, D_{t},\,\bar{R}_{t}\right]$
+\end_inset
+
+.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The functions 
+\family typewriter
+Sv[Gt,Eq]2[G,L]t1 
+\family default
+do this.
+ 
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $\left[Q_{ss},\, K_{ss}^{h},\, D_{ss},\,\bar{R}_{ss}\,;\, Q^{*}\right]$
+\end_inset
+
+ is the steady state vector associated with 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+, the set of initial state vectors will be of the form
+\begin_inset Formula 
+\begin{equation}
+G\left(\left[Q_{ss}+\gamma,\, K_{ss}^{h}+\gamma,\, D_{ss}+\gamma,\,\bar{R}_{ss}+\gamma\right],K_{ss}^{h}+\gamma,\, Q^{*}+\gamma\right)=\left[Q_{ss},\, K_{ss}^{h},\, D_{ss},\,\bar{R}_{ss}\,;\, Q^{*}\right]+\nabla G\bigg|_{ss}\cdot\gamma\label{eq:Initial State Vector First order}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ is a deviation from the steady state to be determined and 
+\begin_inset Formula $\nabla G\bigg|_{ss}$
+\end_inset
+
+ is the jacobian of 
+\begin_inset Formula $G$
+\end_inset
+
+ at the steady state.
+\end_layout
+
+\begin_layout Standard
+The first thing to be said about 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Initial State Vector First order"
+
+\end_inset
+
+ is that it seems to work.
+ The second thing that ought to be mentioned is that it works despite the
+ fact that the initial state vector will be a) on the 
+\begin_inset Quotes eld
+\end_inset
+
+wrong side
+\begin_inset Quotes erd
+\end_inset
+
+ of the steady state for 
+\begin_inset Formula $D$
+\end_inset
+
+ and b) discontinuous for 
+\begin_inset Formula $\bar{R}.$
+\end_inset
+
+ What seems happen is that--while the initial state vector is a 
+\begin_inset Quotes eld
+\end_inset
+
+bad
+\begin_inset Quotes erd
+\end_inset
+
+ guess--it generates a path that is in all subsequent periods continuous
+ and altogether 
+\begin_inset Quotes eld
+\end_inset
+
+nice
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Unfortunately, I can't offer much of an explanation as to why this works
+ out so nicely right now.
+ This is one of the weaker points of the solution.
+\end_layout
+
+\begin_layout Standard
+In any case if we are ready to say that initial state vectors of the form
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Initial State Vector First order"
+
+\end_inset
+
+ will be a good enough, then the problem of choosing an initial state vector
+ is now one of choosing the right 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Choosing 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ to Satisfy 
+\begin_inset Formula $N_{2}=\left(1+\sigma\right)W^{b}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The basic strategy used to choose 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ will be to solve backwards for a few values of 
+\begin_inset Formula $\gamma$
+\end_inset
+
+, save the resulting 
+\begin_inset Formula $N_{2}$
+\end_inset
+
+, then interpolate from 
+\begin_inset Formula $N_{2}=\left(1+\sigma\right)W^{b}$
+\end_inset
+
+ to the correct 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+ The backwards solution procedure will complicate this basic idea a bit
+ because--as can be seen from the final 
+\family typewriter
+if 
+\family default
+condition in Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Solving-Backwards"
+
+\end_inset
+
+--
+\family typewriter
+backSolve
+\family default
+ only returns a path once the net worth 
+\begin_inset Formula $N$
+\end_inset
+
+ implied by a given state vector is less than 
+\begin_inset Formula $\left(1+\sigma\right)W^{b}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:gToNmap"
+
+\end_inset
+
+ displays the mapping between 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ and banker net worth 
+\begin_inset Formula $N_{t}$
+\end_inset
+
+ for the last two steps of the path.
+ The triangles are the second to last step while the circles are the last
+ steps, a relationship that is determined by the fact that 
+\begin_inset Formula $N_{t}<\left(1+\sigma\right)W^{b}$
+\end_inset
+
+.
+ The different colors represent the number of steps on the path.
+ For this example with 
+\begin_inset Formula $Q^{*}=0.93$
+\end_inset
+
+ the blue is associated with 222 steps, the yellow with 221, the green with
+ 220, and the maroon with 219.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename code/paperObjects/gToNmap.eps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:gToNmap"
+
+\end_inset
+
+Final and Penultimate Banker Net Worth Values as a Function of 
+\begin_inset Formula $\gamma$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\size footnotesize
+The triangles are for the penultimate period while the squares are for the
+ final period.
+ Each color represents the number of steps from the initial point to the
+ final point, which is determined by the fact that 
+\begin_inset Formula $N_{t}<\left(1+\sigma\right)W^{b}$
+\end_inset
+
+ at that point.
+ The different colors represent the number of steps on the path.
+ For this example with 
+\begin_inset Formula $Q^{*}=0.93$
+\end_inset
+
+ the blue is associated with 222 steps, the yellow with 221, the green with
+ 220, and the maroon with 219.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:gToNmap"
+
+\end_inset
+
+ one can see that for any 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ there will be numerous 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ that will yield a path that terminates with 
+\begin_inset Formula $N_{2}=\left(1+\sigma\right)W^{b}$
+\end_inset
+
+.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+It will turn out that the solution will be robust to the particular choice
+ of 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ used.
+ I would conjecture that each possible solution (i.e.
+ the initial state vector corresponding to each 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ for which 
+\begin_inset Formula $N_{2}=\left(1+\sigma\right)W^{b}$
+\end_inset
+
+) is, in fact, a step on the full solution path.
+ 
+\end_layout
+
+\end_inset
+
+ Moreover, one can see that looking at only the last steps will be less-than-ide
+al at best and possibly misleading whenever a new step is added.
+ It will instead be ideal to keep track of the number of steps in each path
+ then look at a mix of the final and penultimate steps when interpolating.
+ Finally, one can see that we are interpolating a one-armed quadratic with
+ slight but non-zero curvature.
+ In order to get an accurate result via interpolation it will be necessary
+ to either a) do a highly-local linear interpolation or b) form a spline.
+ In the present coding configuration these methods will be about equal in
+ terms of computational burden; the spline requires the creation of four
+ paths but it will generally require at least as many paths to zero in on
+ a sufficiently local linear approximation.
+ Both methods will yield interpolations with errors on the same order of
+ magnitude and solution 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+'s that differ by about 
+\begin_inset Formula $1e-4$
+\end_inset
+
+.
+ The current code interpolates with 
+\family typewriter
+\size small
+interp1 
+\family default
+using method
+\size default
+ 
+\family typewriter
+pchip
+\family default
+.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+One can look at the results of a local linear approximation by changing
+ the method in line 104 of 
+\family typewriter
+qRunIterQ 
+\family default
+to 
+\family typewriter
+linear
+\family default
+.
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Files and Pseudocode
+\end_layout
+
+\begin_layout Standard
+The funtion 
+\family typewriter
+qRunIterQ
+\family default
+ carries out this step.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+A closely related but deprecated function, qRunIter, is identical to qRunIterQ
+ except that it carries out linear interpolation based on two (generally
+ distantly separated) choices of 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+ It can be called by setting the 
+\family typewriter
+M
+\family default
+ argument in the parent function backUmbrella to the appropriate value.
+ At this point it mostly exists to demonstrate that the curvature of the
+ mapping to be interpolated is too great to be ignored.
+ 
+\end_layout
+
+\end_inset
+
+ The steps in this function are outlined in Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Finding gamma"
+
+\end_inset
+
+.
+ The user supplies 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ (
+\family typewriter
+Qri
+\family default
+: Q-run-iteration), an initial 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ (here called 
+\family typewriter
+grad0m
+\family default
+ for reasons that are murky at this point) and an adjustment multiplier
+ called 
+\family typewriter
+gradAdj
+\family default
+.
+ The function first finds the steady state corresponding to the supplied
+ 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ and the jacobian of the state equations at the steady state.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The jacobian function 
+\family typewriter
+SvJLt1
+\family default
+ takes a lot of time to get into the cache--21% of the 4.147 second runtime
+ of the test script 
+\family typewriter
+qRunIterQTest
+\family default
+.
+ Once this is done, though, the whole of 
+\family typewriter
+qRunIterQ
+\family default
+ runs in 0.45 seconds.
+ 
+\end_layout
+
+\end_inset
+
+ It then runs 
+\family typewriter
+backSolve
+\family default
+ with initial state vector formed according to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Initial State Vector First order"
+
+\end_inset
+
+ with 
+\begin_inset Formula $\gamma=$
+\end_inset
+
+
+\family typewriter
+grad0m
+\family default
+.
+ A second run of 
+\family typewriter
+backSolve
+\family default
+ with 
+\begin_inset Formula $\gamma=$
+\end_inset
+
+
+\family typewriter
+grad0m*gradAdj
+\family default
+ yields the second interpolation point.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+From examining figures like 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:gToNmap"
+
+\end_inset
+
+ for different 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ seems that setting gradAdj between 1.05 and 1.1 will work for most cases.
+ The full code can accommodate cases where 
+\family typewriter
+gradAdj 
+\family default
+is either to big or small by making further adjustments and getting those
+ paths.
+ From a speed perspective, though, it would be ideal to find an adjustment
+ multiplier that works for almost all cases the first time around.
+\end_layout
+
+\end_inset
+
+ If the first path returned by backSolve has 
+\begin_inset Formula $M$
+\end_inset
+
+ steps in total, we would like the second 
+\family typewriter
+backSolve
+\family default
+ path to have 
+\begin_inset Formula $M-1$
+\end_inset
+
+ steps.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Assuming that 
+\family typewriter
+gradAdj
+\family default
+ 
+\begin_inset Formula $>1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+ Assuming that this requirement is met, two more paths are formed that use
+ 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ that are equally spaced between the first two 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+ So in the normal case the interpolations will be based on paths with 
+\begin_inset Formula $\gamma=\big\{$
+\end_inset
+
+
+\family typewriter
+grad0m
+\family default
+, 
+\begin_inset Formula $\frac{1}{3}\cdot$
+\end_inset
+
+
+\family typewriter
+grad0m*gradAdj
+\family default
+, 
+\begin_inset Formula $\frac{2}{3}\cdot$
+\end_inset
+
+
+\family typewriter
+grad0m*gradAdj
+\family default
+, 
+\family typewriter
+grad0m*gradAdj
+\family default
+
+\begin_inset Formula $\big\}$
+\end_inset
+
+.
+ Next, we need to form the set of banker net worths that will be used in
+ interpolation.
+ In a normal case this will be 
+\begin_inset Formula $N_{end-1}$
+\end_inset
+
+ for the path with 
+\begin_inset Formula $\gamma=$
+\end_inset
+
+
+\family typewriter
+grad0m
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+, 
+\begin_inset Formula $N_{end}$
+\end_inset
+
+ for 
+\begin_inset Formula $\gamma=$
+\end_inset
+
+
+\family typewriter
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+grad0m*gradAdj
+\family default
+, and one of either 
+\begin_inset Formula $N_{end}$
+\end_inset
+
+ or 
+\begin_inset Formula $N_{end-1}$
+\end_inset
+
+ for the paths with intermediate 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ depending on whether there are 
+\begin_inset Formula $M$
+\end_inset
+
+ or 
+\begin_inset Formula $M-1$
+\end_inset
+
+ total steps.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout LyX-Code
+
+\series bold
+INPUT
+\series default
+: Run Price 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+, initial 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ grad0m, 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ adjustment multiplier gradAdj
+\end_layout
+
+\begin_layout LyX-Code
+Find the steady state - 
+\family typewriter
+ssRoute
+\end_layout
+
+\begin_layout LyX-Code
+Find Jacobian of state vectors at steady state - 
+\family typewriter
+SvJLt1
+\end_layout
+
+\begin_layout LyX-Code
+First path:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Form initial state vector - 
+\family typewriter
+ss + jacobian*grad0m
+\end_layout
+
+\begin_layout LyX-Code
+Get path - 
+\family typewriter
+sp{1} = backSolve
+\end_layout
+
+\begin_layout LyX-Code
+Adjust 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ - 
+\family typewriter
+grad0m = grad0m*gradAdj
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+Second path: (Same substeps as first path)
+\end_layout
+
+\begin_layout LyX-Code
+Check to make sure number of steps is okay
+\end_layout
+
+\begin_layout LyX-Code
+Adjust 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ - 
+\family typewriter
+grad0m = (1/3)*grad0m*gradAdj
+\end_layout
+
+\begin_layout LyX-Code
+Third path: (Same substeps as first path)
+\end_layout
+
+\begin_layout LyX-Code
+Adjust 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ - 
+\family typewriter
+grad0m = (2/3)*grad0m*gradAdj
+\end_layout
+
+\begin_layout LyX-Code
+Fourth path:
+\end_layout
+
+\begin_layout LyX-Code
+(Same as first path)
+\end_layout
+
+\begin_layout LyX-Code
+Interpolation:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+
+\family typewriter
+x = 
+\family default
+Correct N's for each path (depending on number of steps in each path)
+\end_layout
+
+\begin_layout LyX-Code
+
+\family typewriter
+v =
+\family default
+ set of 
+\begin_inset Formula $\gamma$
+\end_inset
+
+'s
+\end_layout
+
+\begin_layout LyX-Code
+Interpolate to find 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ corresonding to 
+\begin_inset Formula $N=\left(1+\sigma\right)W^{b}$
+\end_inset
+
+ - 
+\family typewriter
+interp1(x,v,
+\begin_inset Formula $\left(1+\sigma\right)W^{b}$
+\end_inset
+
+,'method','pchip')
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+Get path with interpolated 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+ (Same substeps as first path.)
+\end_layout
+
+\begin_layout LyX-Code
+
+\series bold
+OUTPUT: 
+\series default
+Path with interpolated 
+\begin_inset Formula $\gamma$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Finding gamma"
+
+\end_inset
+
+Finding the Right 
+\begin_inset Formula $\gamma$
+\end_inset
+
+--
+\family typewriter
+qRunIterQ
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Finding 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The last subsection showed how to find an adequate candidate solution path
+ given a 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+.
+ This subsection shows how to find the correct 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+.
+ In equilibrium 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ must satisfy 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Q* sln condition"
+
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+1=\beta\frac{C^{h*}}{C_{2}^{h}}\frac{Z+Q_{2}}{Q^{*}+\alpha}.
+\]
+
+\end_inset
+
+Function 
+\family typewriter
+qRunIterQ 
+\family default
+will return a solution path that will include 
+\begin_inset Formula $Q_{2}$
+\end_inset
+
+ and from which 
+\begin_inset Formula $C_{2}^{h}$
+\end_inset
+
+ may be derived.
+ If the 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ implied by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Q* sln condition"
+
+\end_inset
+
+ is the same 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ used to derive the solution path, then we have an equilibrium.
+ If the 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ implied by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Q* sln condition"
+
+\end_inset
+
+ is not the same as the 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ used to compute the path, then a new 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ must be tried.
+ Following the suggestion in the handout, I use the 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ implied by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Q* sln condition"
+
+\end_inset
+
+ as the new guess to be tried.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+backUmbrella 
+\family default
+is the function that carries out this final step.
+ Pseudocode for this function can be found in Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Finding---backUmbrella"
+
+\end_inset
+
+.
+ The actual code is a bit more crowded in order to print out statuses concerning
+ convergence and the like but the idea is simple; run a function, check
+ a condition, update if it doesn't converge and exit if it does.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout LyX-Code
+INPUT: Initial 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ guess (Q0), Required convergence tolerance (Tol), maximum number of 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ guess iterations to complete, initial 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ (grad0m), Adjustment to 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ (fradAdj), interpolation method (M)
+\end_layout
+
+\begin_layout LyX-Code
+Qri = Q0;
+\end_layout
+
+\begin_layout LyX-Code
+iter = 1;
+\end_layout
+
+\begin_layout LyX-Code
+WHILE iter < maxIter
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+path = qRunIterQ(Qri, grad0m, gradAdj);
+\end_layout
+
+\begin_layout LyX-Code
+Period-2-Equilibrium values = objEq2(path);
+\end_layout
+
+\begin_layout LyX-Code
+QrunP = 
+\begin_inset Formula $\beta\frac{C^{h*}}{C_{2}^{h}}\left(Z+Q_{2}\right)-\alpha$
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+if abs((QrunP - Qri)/Qri) < Tol
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Equilibrium Found
+\end_layout
+
+\begin_layout LyX-Code
+Exit;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+else
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Qri = QrunP
+\end_layout
+
+\begin_layout LyX-Code
+iter = iter + 1;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+end
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+ENDWHILE
+\end_layout
+
+\begin_layout LyX-Code
+OUTPUT: Equilibrium path
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Finding---backUmbrella"
+
+\end_inset
+
+Finding 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+--
+\family typewriter
+backUmbrella
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Results"
+
+\end_inset
+
+Results
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+All results can be called from the script 
+\family typewriter
+final.m
+\family default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Equilibrium Values in a Run
+\end_layout
+
+\begin_layout Subsubsection
+Price of Assets
+\end_layout
+
+\begin_layout Standard
+In equilibrium 
+\begin_inset Formula $Q^{*}=0.90087$
+\end_inset
+
+.
+ This result is invariant to the initial guess of the equilibrium 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ and the choice of 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+There does, however, seem to be a trade-off between 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ and the level of convergence achieved.
+ In particular, to achieve closer convergence of 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ one must use a 
+\emph on
+larger 
+\emph default
+
+\begin_inset Formula $\gamma$
+\end_inset
+
+ (i.e.
+ 1e-5 as opposed to 1e-8 or 1e-10).
+ 
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:qRunMapping"
+
+\end_inset
+
+ shows the mapping of 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ from iteration to iteration.
+ In practice, I find that convergence is only essentially monotone.
+ That is, it is possible to have non-monotone 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ updates but only after the process has already essentially converged.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+For example, the specification used to create Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:qRunMapping"
+
+\end_inset
+
+ specified 
+\begin_inset Formula $\gamma=1e-8$
+\end_inset
+
+ and a convergence level of 
+\begin_inset Formula $1e-8$
+\end_inset
+
+ (
+\begin_inset Formula $1e-06\%$
+\end_inset
+
+).
+ Starting with 
+\begin_inset Formula $Q_{guess}^{*}=0.98$
+\end_inset
+
+ 
+\family typewriter
+backUmbrella 
+\family default
+runs for a total of 90 iterations before converging.
+ Convergence is monotone and negative for the first 66 iterations.
+ At iteration 66 
+\begin_inset Formula $Q_{guess}^{*}=0.90087077$
+\end_inset
+
+ and the 
+\emph on
+percentage
+\emph default
+ difference from the previous period is 
+\begin_inset Formula $-2.41e-5\%$
+\end_inset
+
+; i.e.
+ the process has already essentially converged.
+ From iterations 67-90 the largest percentage difference between periods
+ is 
+\begin_inset Formula $+2.19e-05\%$
+\end_inset
+
+.
+ The 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ returned by 
+\family typewriter
+backUmbrella 
+\family default
+is 0.9008705918.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename code/paperObjects/qRunMapping.eps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:qRunMapping"
+
+\end_inset
+
+Mapping from a Guess of 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ to an Updated Guess of 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\size footnotesize
+This figure--created in the script 
+\family typewriter
+qRunMapping
+\family default
+--was formed by running 
+\family typewriter
+backUmbrella 
+\family default
+twice with initial 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ of 0.98 in the first run and 0.8 in the second.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Other Equilibrium Values
+\end_layout
+
+\begin_layout Standard
+The values of other equilibrium variables during a run are I think either
+ trivial or debatable.
+ First, the trivial.
+ Households hold all of the capital because banks have to sell all of it
+ to them to pay out depositors in the run; 
+\begin_inset Formula $K^{h*}=1$
+\end_inset
+
+.
+ Households remove all of their deposits in the run; 
+\begin_inset Formula $D^{*}=0$
+\end_inset
+
+.
+ The probability of a run next period is zero because banks have no deposits
+ to steal; 
+\begin_inset Formula $P^{*}=0$
+\end_inset
+
+.
+ Banks are bankrupted by the run; 
+\begin_inset Formula $N^{*}=0$
+\end_inset
+
+.
+ Banks that exit are bankrupt and therefore consume nothing; 
+\begin_inset Formula $C^{b*}=0$
+\end_inset
+
+.
+ Households therefore have consumption 
+\begin_inset Formula $C^{h*}=Z+W^{h}-\frac{\alpha}{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Bank leverage is 
+\begin_inset Formula $\Phi=D/\left(N+D\right)$
+\end_inset
+
+.
+ In the run both 
+\begin_inset Formula $N$
+\end_inset
+
+ and 
+\begin_inset Formula $D$
+\end_inset
+
+ are zero.
+ From a conceptual and linguistic point of view, I think that it makes the
+ most sense to say that bank leverage is zero during the run.
+ Leverage is all about how much assets an entity has to spend over and above
+ its own equity.
+ To say that leverage in the run is positive infinity makes it sound as
+ if the banks have money to spend.
+ This clearly is not the case, though.
+\end_layout
+
+\begin_layout Standard
+Finally, there is the question of deposit interest rates during the run.
+ One way to answer this would be to use 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:EQ4"
+
+\end_inset
+
+ and the fact that 
+\begin_inset Formula $P^{*}=0$
+\end_inset
+
+ to find
+\begin_inset Formula 
+\[
+\bar{R}^{*}=\frac{1}{\beta}\frac{C_{2}^{h}}{C^{h*}}=1.0523.
+\]
+
+\end_inset
+
+I don't like this answer, though.
+ The reason is that it seems to suggest that the market for deposits is
+ clearing because 
+\begin_inset Formula $\bar{R}^{*}=1.0523$
+\end_inset
+
+.
+ However, the quantity of deposits during the run is not a function of the
+ interest rate; it's a sunspot phenomenon.
+ Conditional on there being a run it does not matter if 
+\begin_inset Formula $\bar{R}^{*}=1.5$
+\end_inset
+
+ or 
+\begin_inset Formula $1.0005$
+\end_inset
+
+.
+ It is non-optimal for an individual household to deposit in a bank at any
+ interest rate because the bankrupt bank will always run away with the deposit.
+ One might then want to say that, in order for the market for deposits to
+ clear we must have 
+\begin_inset Formula $\bar{R}``="+\infty$
+\end_inset
+
+; otherwise banks will always be willing to accept some sort of deposit.
+ Setting aside the question of whether infinite prices make any sense it
+ is enough to show that this line of argument is flawed.
+ Suppose that interest rates were arbitrarily high.
+ How much deposits would a bank be willing to supply in this environment?
+ I think that the answer is, however much households are willing to provide.
+ Why? The bankrupt bank has no intention of paying the interest rate, it
+ will always default and run away.
+ The interest rate has no bearing on this decision.
+ Thus, I think it is wrong to go out looking for an interest rate that will
+ clear the market for deposits during the run period.
+ Instead, I think it makes the most sense to just say that interest rate
+ during the run period is indeterminate.
+ 
+\end_layout
+
+\begin_layout Subsection
+The Equilibrium Path After a Run
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:eqnPaths"
+
+\end_inset
+
+ shows the paths of equilibrium variables beginning from period 2.
+ 
+\end_layout
+
+\begin_layout Standard
+One noteworthy feature of this figure is that the net interest rate 
+\begin_inset Formula $\bar{R}_{t}$
+\end_inset
+
+ is below the steady state 
+\begin_inset Formula $\bar{R}_{ss}$
+\end_inset
+
+ at 
+\begin_inset Formula $t=2$
+\end_inset
+
+ and then jumps above 
+\begin_inset Formula $\bar{R}_{ss}$
+\end_inset
+
+ at 
+\begin_inset Formula $t=3$
+\end_inset
+
+.
+ At this point I do not think that this reflects an error in my code or
+ method but is instead a part of the true solution.
+ In short, I think that households are willing to accept a lower interest
+ rate in order to deposit more funds with the banks.
+ Households want to deposit with them to reap the higher returns.
+ However, the low net worth of banks limits their ability to take on leverage
+ without violating the incentive compatibility constraint.
+ A lower interest rate makes the non-default option optimal for banks despite
+ their high leverage.
+ From period 2 to period 3 bank net worth increases by 219%.
+ This windfall means that the banking sector can take on more deposits while
+ lowering leverage.
+ 
+\end_layout
+
+\begin_layout Standard
+In period 2 there is a relatively large probability of a run; a force that
+ should push up interest rates.
+ However, I have argued that the desire of households to deposit in spite
+ of low bank net worth will push down interest rates and that, in fact,
+ this opposite force will dominate.
+ In period 3 the probability of a bank run is still quite high.
+ The ability of banks to take on deposits while respecting the incentive
+ constraint increased substantially relative to the previous period, though.
+ Therefore, the bank run force will dominate and interest rates will be
+ relatively high.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename code/paperObjects/variablePaths.eps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:eqnPaths"
+
+\end_inset
+
+Equilibrium Paths
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Time To Reach The Steady State
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Eqn-Values"
+
+\end_inset
+
+ displays the values of equilibrium variables at select periods after the
+ steady state and the values of the variables in steady state.
+ With the exception of 
+\begin_inset Formula $\Phi_{t}$
+\end_inset
+
+ the variables are all within 
+\begin_inset Formula $1e-4$
+\end_inset
+
+ of the steady state after 120 periods (approximately 30 years).
+ 
+\end_layout
+
+\begin_layout Standard
+The method used here makes it relatively straightforward to consider later
+ periods by choosing a smaller 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+ Looking at the column for 
+\begin_inset Formula $t=160$
+\end_inset
+
+ one can see that 
+\begin_inset Formula $\Phi_{t}$
+\end_inset
+
+ has almost converged to the steady state value by that time.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="12" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="decimal" decimal_point="." valignment="top" width="0">
+<column alignment="decimal" decimal_point="." valignment="top" width="0">
+<column alignment="decimal" decimal_point="." valignment="top" width="0">
+<column alignment="decimal" decimal_point="." valignment="top" width="0">
+<column alignment="decimal" decimal_point="." valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+120
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+160
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Steady State
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $Q_{t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.9438
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.9799
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.9802
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.9802
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.9802
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $K_{t}^{h}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.7018
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.2911
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.2854
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.2854
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.2854
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $D_{t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.2812
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.6458
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.6507
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.6507
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.6507
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\bar{R}_{t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.0097
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.0099
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.0100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.0100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.0100
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $P_{t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0407
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0072
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0068
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0068
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0068
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $N_{t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0002
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0489
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0497
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0497
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0497
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\Phi_{t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1256.4600
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+14.2176
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+14.0833
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+14.0823
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+14.0822
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $C_{t}^{h}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0557
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0548
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0548
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0548
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0548
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $C_{t}^{b}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0026
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0026
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0026
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0026
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Eqn-Values"
+
+\end_inset
+
+Equilibrium Values at Select Periods
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Comparing Steady States
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:SS-Values"
+
+\end_inset
+
+ shows the steady state values side-by-side for the two parameterizations
+ of the model.
+ The biggest differences between the two are found in the probability of
+ a run, 
+\begin_inset Formula $P_{ss}$
+\end_inset
+
+ followed by the banker net worth 
+\begin_inset Formula $N_{ss}$
+\end_inset
+
+ and leverage 
+\begin_inset Formula $\Phi_{ss}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Recall that the probability of a run is determined by
+\begin_inset Formula 
+\[
+P_{ss}=1-\frac{\mbox{\mbox{\ensuremath{\left[Z+Q^{*}\right]}}}\left[1-K_{ss}^{h}\right]}{D_{ss}\cdot\bar{R}_{ss}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The decreases in 
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+ and 
+\begin_inset Formula $D_{ss}$
+\end_inset
+
+ and increase in 
+\begin_inset Formula $K_{ss}^{h}$
+\end_inset
+
+ when 
+\begin_inset Formula $W^{b}=0.0011487/10$
+\end_inset
+
+ relative to when 
+\begin_inset Formula $W^{b}=0.0011487/50$
+\end_inset
+
+ all contribute to the decrease in 
+\begin_inset Formula $P_{ss}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="13" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="decimal" decimal_point="." valignment="top" width="0">
+<column alignment="decimal" decimal_point="." valignment="top" width="0">
+<column alignment="decimal" decimal_point="." valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Current
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Handout
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\%\Delta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $W^{b}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0011487/10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0011487/50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
++160.93
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Q^{*}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9007
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.91
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-1.0272
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $Q_{ss}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.9802
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.98
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
++0.0204
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $K_{ss}^{h}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.2854
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.28
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
++1.9102
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $D_{ss}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.6507
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.66
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-1.4191
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\bar{R}_{ss}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.0100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.0101
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.0100
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $P_{ss}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0068
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0075
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-9.7980
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $N_{ss}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0497
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.047
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
++5.5857
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\Phi_{ss}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+14.0822
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14.93
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-5.8461
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $C_{ss}^{h}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0548
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.055
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.3643
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $C_{ss}^{b}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0026
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="decimal" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0025
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
++3.9221
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:SS-Values"
+
+\end_inset
+
+Equilibrium Values at Select Periods
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Simulation
+\end_layout
+
+\begin_layout Standard
+The function 
+\family typewriter
+simuPath 
+\family default
+simulates the economy.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Summary-Statistics-from-Simulation"
+
+\end_inset
+
+ presents summary statistics from the simulation.
+ One important deviation of the method used here from that suggested in
+ the handout is that the number of periods to the steady state is not set
+ as a parameter.
+ In my benchmark solution path there are 178 periods from the run period
+ to the initial point near the steady state.
+ I then cut off the last eight periods to account for any odd results arising
+ from the semi-arbitrary initial point.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+On this point see Subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:The-Set-of-initial-state-vectors"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ This longer path will make it appear that it takes longer to return to
+ the steady state.
+ To account for this I include in 
+\family typewriter
+simuPath
+\family default
+ the option to jump to the steady state after a fixed number of periods.
+ The two columns in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Summary-Statistics-from-Simulation"
+
+\end_inset
+
+ include simulation results for the cases in which the minimum number of
+ steps from the run period to the steady state are 170 and 120, respectively.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Minimum Number of Steps From Run to Steady State 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+170
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+120
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mean Periods in Steady State
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+147.47
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+148.09
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(45.12)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(39.24)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mean Periods to Return to Steady State after Run
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+345.60
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+202.40
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(73.21)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(30.76)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Summary-Statistics-from-Simulation"
+
+\end_inset
+
+Summary Statistics from Simulation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Table displays means and standard deviations (in parentheses) of summary
+ statistics from 1,000 simulations carried out by function 
+\family typewriter
+simuPath 
+\family default
+for 5,000 periods.
+ The path used in the simulation was generated by 
+\family typewriter
+backUmbrella
+\family default
+.
+ The path used is identical across simulations and is stored in 
+\family typewriter
+simuData.mat
+\family default
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As expected the mean periods in steady state is similar across columns.
+ Once the economy is in the steady state the amount of time it stays in
+ steady state is only a function of 
+\begin_inset Formula $P_{ss}=0.0068$
+\end_inset
+
+, which in turn only depends on current and future variables, not past periods.
+ The theoretical expectation of the mean periods in steady state is 
+\begin_inset Formula $1/P_{ss}=147.0588$
+\end_inset
+
+.
+ This is quite close to the mean of mean periods in steady state across
+ simulations.
+ 
+\end_layout
+
+\begin_layout Standard
+The difference in mean periods to return to the steady state after a run
+ are quite different across columns.
+ As mentioned above, this feature partly arises from the fact that, when
+ the solution path is longer, it will simply take more periods to reach
+ the path.
+ From this effect alone we might expect that the periods to return to the
+ steady state will be fifty periods greater in the first column relative
+ to the second.
+ Another factor contributing to the longer time to return is that a run
+ may occur while the economy is taking the last fifty steps.
+ In column 2 such a run would be counted as ending a rather short stretch
+ in the steady state.
+ In column 1 the economy is never counted as entering the steady state and
+ there will be a minimum of 170 more periods until the economy could be
+ counted as being in steady state.
+ A third effect increasing the time to return in column 1 relative to column
+ 2 is that the probability of a run is decreasing to the steady state value.
+ However, after 120 periods the probability of a run is almost identical
+ to that in the steady state.
+ Therefore, I do not think that this factor plays a significant role in
+ explaining the difference between columns.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "latex/finalBib"
+options "chicago"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

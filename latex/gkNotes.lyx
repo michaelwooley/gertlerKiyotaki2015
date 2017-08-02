@@ -1,0 +1,1648 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass amsart
+\begin_preamble
+\usepackage[subtle]{savetrees}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{plot coordinates/math parser=false}
+\SetExpansion[stretch = 70, shrink = 70,] { encoding = {T2A} } { }
+\DeclareMicrotypeSet{t2atext}{encoding=T2A}
+\UseMicrotypeSet{t2atext}
+\end_preamble
+\use_default_options true
+\begin_removed_modules
+theorems-ams
+\end_removed_modules
+\begin_modules
+eqs-within-sections
+figs-within-sections
+theorems-ams-bytype
+theorems-ams-extended-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 0 0 31 -1
+\bullet 1 0 35 -1
+\bullet 2 0 24 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Exp}{\mathbb{E}}
+{\mathbb{E}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Notes on Gertler-Kiyotaki
+\end_layout
+
+\begin_layout Section
+Setup
+\end_layout
+
+\begin_layout Itemize
+Two types of agents: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Bankers: Specialize in making loans
+\end_layout
+
+\begin_layout Itemize
+Households: Also make loans, but are less efficient in doing so.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Two types of goods:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Consumption.
+ (Non-drables).
+\end_layout
+
+\begin_layout Itemize
+Capital: (Durable)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Does not depreciate.
+ 
+\end_layout
+
+\begin_layout Itemize
+Fixed supply is unity.
+ 
+\begin_inset Formula 
+\[
+K_{t}^{b}+K_{t}^{h}=1.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Payoff to banker of intermediating 
+\begin_inset Formula $K_{t}^{b}$
+\end_inset
+
+ units of capital is 
+\begin_inset Formula $Z_{t+1}K_{t}^{b}$
+\end_inset
+
+ units of goods in 
+\begin_inset Formula $t+1$
+\end_inset
+
+ plus the returned capital:
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+\text{date }t &  & \text{date }t+1\\
+K_{t}^{b}\text{ capital}\} & \;\;\longrightarrow\;\; & \begin{cases}
+Z_{t+1}K_{t}^{b} & \text{output}\\
+K_{t}^{b} & \text{capital}
+\end{cases}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Households that hold capital must pay a management cost 
+\begin_inset Formula $f\left(K_{t}^{h}\right)$
+\end_inset
+
+ of goods at 
+\begin_inset Formula $t$
+\end_inset
+
+ to hold capital
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+\text{date }t &  & \text{date }t+1\\
+\left.\begin{array}{c}
+K_{t}^{h}\text{ capital}\\
+-f\left(K_{t}^{h}\right)\text{ cost}
+\end{array}\right\}  & \;\;\longrightarrow\;\; & \begin{cases}
+Z_{t+1}K_{t}^{h} & \text{output}\\
+K_{t}^{h} & \text{capital}
+\end{cases}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The management cost takes the form
+\begin_inset Formula 
+\[
+f\left(K_{t}^{h}\right)=\frac{\alpha}{2}\left(K_{t}^{h}\right)^{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+for 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Key to bank run: liquidity mismatch.
+ How to do that in this model? 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Financing constraints on banks + inefficient household management of capital
+ gives rise to imperfect liquidity in the market for capital.
+\end_layout
+
+\begin_layout Itemize
+Key is that the households are less efficient than the specialist banks.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Households
+\end_layout
+
+\begin_layout Itemize
+Household has consumption/savings decision
+\end_layout
+
+\begin_layout Itemize
+Each period has 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+return on portfolio investment
+\end_layout
+
+\begin_layout Itemize
+endowment of nondurable goods 
+\begin_inset Formula $Z_{t}W^{h}$
+\end_inset
+
+.
+ Notice that this varies with the producivity shock 
+\begin_inset Formula $Z_{t}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Deposits with institutions are
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+one period
+\end_layout
+
+\begin_layout Itemize
+pay non-contingent gross return
+\begin_inset Formula 
+\[
+R_{t+1}=\begin{cases}
+\bar{R}_{t+1} & \text{if no bank run}\\
+x_{t+1}\bar{R}_{t+1} & \text{if run}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+where 
+\begin_inset Formula $x_{t+1}\in\left[0,1\right]$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Notice that a different between runs being completely unanticipated events
+ v.
+ being anticipateble.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+When completely unanticipated, the expectation of the realized return is
+ 
+\begin_inset Formula $\bar{R}_{t+1}$
+\end_inset
+
+ with certainty
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Household problem:
+\begin_inset Formula 
+\[
+\begin{array}{c}
+\max_{D_{t},\,K_{t}^{h}}\;U_{t}=\Exp\left(\sum_{i=0}^{\infty}\beta^{i}\ln C_{t+i}^{h}\right)\;\;\text{s.t. }\\
+C_{t}^{h}+D_{t}+Q_{t}K_{t}^{h}+f\left(K_{t}^{h}\right)=Z_{t}W^{h}+R_{t}D_{t-1}+\left(Z_{t}+Q_{t}\right)K_{t-1}^{h}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Choice of bank deposits 
+\begin_inset Formula $D_{t}$
+\end_inset
+
+, direct capital holdings 
+\begin_inset Formula $K_{t}^{h}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Market price of capital 
+\begin_inset Formula $Q_{t}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+FOCs when P(Bank run) = 0.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Deposits:
+\begin_inset Formula 
+\begin{align*}
+\Exp_{t}\left[\Lambda_{t,t+1}\right]R_{t+1} & =1\\
+\Lambda_{t,t+i} & =\beta^{i}\frac{C_{t}^{h}}{C_{t+i}^{h}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Stochastic discount factor 
+\begin_inset Formula $\Lambda_{t,t+i}$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Direct capital holdings
+\begin_inset Formula 
+\begin{align*}
+\Exp\left[\Lambda_{t,t+1}R_{t+1}^{h}\right] & =1\\
+R_{t+1}^{h} & =\frac{Z_{t+1}+Q_{t+1}}{Q_{t}+f'\left(K_{t}^{h}\right)}=\frac{\text{Benefits}_{t+1}}{\text{Costs}_{t}}\\
+f'\left(K_{t}^{h}\right) & =\alpha K_{t}^{h}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $R_{t+1}^{h}$
+\end_inset
+
+ is household's gross marginal rate of return from direct capital holdings.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Section
+Banks
+\end_layout
+
+\begin_layout Itemize
+Unregulated
+\end_layout
+
+\begin_layout Itemize
+Hold long-term securities but issue short-term debt 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+subject to runs
+\end_layout
+
+\begin_layout Itemize
+Fund capital investments by 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+issuing deposits to households 
+\end_layout
+
+\begin_layout Itemize
+using their own equity 
+\begin_inset Formula $n_{t}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Financial frictions will limit ability of bankers to accumulate deposits
+\end_layout
+
+\begin_layout Itemize
+TECHNICAL PROBLEM: Bankers will try to save way out of financing constraint
+ by accumulating retained earnings 
+\end_layout
+
+\begin_layout Itemize
+SOLUTION: Finite expected lifetime.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+iid probability 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ of surviving until the next period and 
+\begin_inset Formula $1-\sigma$
+\end_inset
+
+ of exiting.
+ 
+\end_layout
+
+\begin_layout Itemize
+Expected lifetime then 
+\begin_inset Formula $\frac{1}{1-\sigma}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+New bankers enter each period.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Initial endowment 
+\begin_inset Formula $w^{b}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Number of entrants = number of deaths = 
+\begin_inset Formula $1-\sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Ensures that banks use leverage in equilibrium.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Bankers are risk neutral.
+\end_layout
+
+\begin_layout Itemize
+Only enjoy utility from consumption when exit.
+\end_layout
+
+\begin_layout Itemize
+Expected utility of continuing banker at end of 
+\begin_inset Formula $t$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+V_{t}=\Exp_{t}\left[\sum_{i=1}^{\infty}\beta^{i}\left(1-\sigma\right)\sigma^{i-1}c_{t+i}^{b}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\left(1-\sigma\right)\sigma^{i-1}$
+\end_inset
+
+ probability of exiting at date 
+\begin_inset Formula $t+i$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $c_{t+i}^{b}$
+\end_inset
+
+ is terminal consumption if banker exits at 
+\begin_inset Formula $t+i$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename GKfig1.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Figure 1 from GK
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $Z_{t}$
+\end_inset
+
+ realized at 
+\emph on
+start 
+\emph default
+of 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Three states for bank to be in:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Survivors.
+ 
+\series default
+Conditional on shock net worth 
+\begin_inset Formula $n_{t}$
+\end_inset
+
+ of 
+\emph on
+surviving
+\emph default
+ (not new) bankers is the gross return on assets net the cost of deposits:
+\begin_inset Formula 
+\[
+n_{t}=\overbrace{\left(Z_{t}+Q_{t}\right)}^{\text{Return on Invest}}k_{t-1}^{b}-\overbrace{R_{t}d_{t-1}}^{\text{Pay to Depositors}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+New.
+ 
+\series default
+For new banks, net worth is
+\begin_inset Formula 
+\[
+n_{t}=w^{b}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Exit/Death.
+ 
+\series default
+Use net worth to consume (like dividend payouts).
+\begin_inset Formula 
+\[
+c_{t}^{b}=n_{t}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Within period, banks finance asset holdings with net worth, deposits
+\begin_inset Formula 
+\[
+\underbrace{Q_{t}k_{t}^{b}}_{\text{Assets}}=\underbrace{d_{t}+n_{t}}_{\text{liabilities}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Financial Friction: Agency Problem
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Limiting banks' ability to issue deposits
+\emph default
+.
+ Can manage honestly or divert.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Divert: can sell 
+\begin_inset Formula $\theta$
+\end_inset
+
+ of assets on secondary market in order to obtain funds for personal use.
+\end_layout
+
+\begin_layout Itemize
+Must make diversion decision at 
+\begin_inset Formula $t$
+\end_inset
+
+ prior to realization of uncertainty at 
+\begin_inset Formula $t+1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Banker's decision at 
+\begin_inset Formula $t$
+\end_inset
+
+: compare gain from honest operation 
+\begin_inset Formula $V_{t}$
+\end_inset
+
+ to gain from diverting funds 
+\begin_inset Formula $\theta Q_{t}k_{t}^{b}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Rational depositors will not lend to banker that has incentive to divert.
+\end_layout
+
+\begin_layout Itemize
+.: must be better for banker to be honest rather than cheat.
+ Leads to 
+\series bold
+incentive constraint
+\series default
+:
+\begin_inset Formula 
+\[
+\overbrace{\theta Q_{t}k_{t}^{b}}^{Divert}\leq\overbrace{V_{t}}^{\text{Honest}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+IC implies that 
+\begin_inset Formula $n_{t}>0$
+\end_inset
+
+ for bank to operate.
+ Why? 
+\begin_inset Formula $V_{t}\propto n_{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Recursive statement of franchise value:
+\begin_inset Formula 
+\[
+V_{t}=\Exp_{t}\bigg[\beta\left(1-\sigma\right)\overbrace{n_{t+1}}^{\text{Exit}}+\beta\sigma\overbrace{V_{t+1}}^{\text{Survive}}\bigg].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Bankers' problem
+\series default
+:
+\begin_inset Formula 
+\begin{align*}
+\max_{k_{t}^{b},d_{t}}\,V_{t} & =\Exp_{t}\bigg[\beta\left(1-\sigma\right)n_{t+1}+\beta\sigma V_{t+1}\bigg]\\
+ & \text{s.t.}\\
+\theta Q_{t}k_{t}^{b} & \leq V_{t} & \text{IC}\\
+Q_{t}k_{t}^{b} & =d_{t}+n_{t} & \text{Balance Sheet 1}\\
+n_{t} & =\left(Z_{t}+Q_{t}\right)k_{t-1}^{b}-R_{t}d_{t-1} & \text{Balance Sheet 2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Growth rate of net worth.
+ (Manipulate the BS1-BS2 conditions)
+\begin_inset Formula 
+\begin{align*}
+\frac{n_{t+1}}{n_{t}} & =\frac{\left(Z_{t+1}+Q_{t+1}\right)k_{t}^{b}-R_{t+1}d_{t}}{Q_{t}k_{t}^{b}-d_{t}}\\
+ & =\frac{\left(Z_{t+1}+Q_{t+1}\right)k_{t}^{b}}{Q_{t}k_{t}^{b}-d_{t}}-R_{t+1}\frac{d_{t}}{Q_{t}k_{t}^{b}-d_{t}}\\
+ & =\frac{Z_{t+1}+Q_{t+1}}{n_{t}}\frac{d_{t}+n_{t}}{Q_{t}}-R_{t+1}\frac{d_{t}}{n_{t}}\\
+ & =\frac{Z_{t+1}+Q_{t+1}}{Q_{t}}\underbrace{\frac{Q_{t}k_{t}^{b}}{n_{t}}}_{\equiv\phi_{t}}-R_{t+1}\frac{d_{t}}{n_{t}}\\
+ & =\left(R_{t+1}^{b}-R_{t+1}\right)\phi_{t}+R_{t+1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+where
+\begin_inset Formula 
+\begin{align*}
+R_{t+1}^{b} & =\frac{Z_{t+1}+Q_{t+1}}{Q_{t}}\\
+\phi_{t} & \equiv\frac{Q_{t}k_{t}^{b}}{n_{t}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{t+1}^{b}$
+\end_inset
+
+ is 
+\emph on
+realized
+\emph default
+ rate of return on bank assets from 
+\begin_inset Formula $t$
+\end_inset
+
+ to 
+\begin_inset Formula $t+1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\phi_{t}$
+\end_inset
+
+ is the ratio of assets to net worth--
+\series bold
+leverage multiple
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\frac{n_{t+1}}{n_{t}}$
+\end_inset
+
+ increasing in leverage when realized reate of returns exceeds deposit rate:
+ 
+\begin_inset Formula $R_{t+1}^{b}>R_{t+1}.$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Both objective and constraints of bank are constant return to scale 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ optimization problem is reduced to choosing 
+\begin_inset Formula $\phi_{t}$
+\end_inset
+
+ to maximize Tobin q--Franchise value per unit of net worth, 
+\begin_inset Formula $\frac{V_{t}}{n_{t}}\equiv\psi_{t}$
+\end_inset
+
+.
+ i.e.
+ 
+\begin_inset Formula 
+\begin{align*}
+\psi_{t} & =\max_{\phi_{t}}\,\Exp_{t}\Bigg\{\beta\overbrace{\left(1-\sigma+\sigma\psi_{t+1}\right)}^{\equiv\Omega_{t+1}}\left[\left(R_{t+1}^{b}-R_{t+1}\right)\phi_{t}+R_{t+1}\right]\Bigg\}\\
+ & =\max_{\phi_{t}}\,\Exp_{t}\left\{ \mu_{t}\phi_{t}+\nu_{t}\right\} \\
+ & \text{s.t.}\\
+\theta\phi_{t} & \leq\psi_{t}=\mu_{t}\phi_{t}+\nu_{t} & \text{IC'}\\
+ & \text{where}\\
+\mu_{t} & =\Exp_{t}\left[\beta\Omega_{t+1}\left(R_{t+1}^{b}-R_{t+1}\right)\right]\\
+\nu_{t} & =\Exp_{t}\left(\beta\Omega_{t+1}\right)R_{t+1}\\
+\Omega_{t+1} & \equiv1-\sigma+\sigma\psi_{t+1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\mu_{t}$
+\end_inset
+
+.
+ Excess marginal value of assets over deposits
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\nu_{t}$
+\end_inset
+
+.
+ Marginal Cost of deposits
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\Omega_{t+1}$
+\end_inset
+
+.
+ Multiplier: weighted average of the marginal values of net worth to exiting
+ and continuing bankers at 
+\begin_inset Formula $t+1$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Bank's value maximization implies IC' is binding iff excess marginal value
+ from honest management 
+\begin_inset Formula $\mu_{t}$
+\end_inset
+
+is positive but less than marginal gain from diverting 
+\begin_inset Formula $\theta$
+\end_inset
+
+ units of assets.
+ 
+\begin_inset Formula 
+\begin{equation}
+0<\mu_{t}<\theta\label{eq:IC''}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+i.e.
+ can't have to big of a payoff or else will run.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\emph on
+Assume 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:IC''"
+
+\end_inset
+
+ is satisfied.
+ 
+\end_layout
+
+\begin_layout Itemize
+Then have limit on leverage multiple:
+\begin_inset Formula 
+\begin{align*}
+\phi_{t} & =\frac{\psi_{t}}{\theta}=\frac{\nu_{t}}{\theta-\mu_{t}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Limits portfolio size to point where bank's gain from diversion 
+\begin_inset Formula $\theta\phi_{t}$
+\end_inset
+
+ is exactly offset by cost of losing franchise value 
+\begin_inset Formula $\psi_{t}=\mu_{t}\phi_{t}+\nu_{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Agency problem leads to endogenous capital constraint on size of bank portfolio.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Without an IC, unlimited arbitrage leads banks to push excess returns to
+ zero: 
+\begin_inset Formula $\mu_{t}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+All capital intermediated.
+\end_layout
+
+\begin_layout Itemize
+No financial frictions.
+ 
+\end_layout
+
+\begin_layout Itemize
+Financial structure irrelevant.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Binding IC alone implies 
+\begin_inset Formula $\mu_{t}>0$
+\end_inset
+
+ and 
+\begin_inset Formula $\psi_{t}>1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Fluctuations in 
+\begin_inset Formula $n_{t}$
+\end_inset
+
+ 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ fluctuations in bank lending 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+financial accelarator
+\begin_inset Quotes erd
+\end_inset
+
+ effects
+\end_layout
+
+\begin_layout Itemize
+Since a bank cannot operate with 
+\begin_inset Formula $n_{t}\leq0$
+\end_inset
+
+, a bank run may be possible.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Occurs if--after realization of 
+\begin_inset Formula $Z_{t}$
+\end_inset
+
+ at outset of period 
+\begin_inset Formula $t$
+\end_inset
+
+ -- depositors choose en masse not to roll over their deposits.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Aggregation and Equilibrium without Bank Runs
+\end_layout
+
+\begin_layout Itemize
+Use facts that 1)
+\begin_inset Formula $\phi_{t}$
+\end_inset
+
+ size-independent and 2) IC binding.
+ 
+\end_layout
+
+\begin_layout Itemize
+Aggregate across banks to obtain the relation between total assets held
+ by banking system 
+\begin_inset Formula $Q_{t}K_{t}^{b}$
+\end_inset
+
+ and total net worth 
+\begin_inset Formula $N_{t}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+Q_{t}K_{t}^{b}=\phi_{t}N_{t}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Evolution of 
+\begin_inset Formula $N_{t}$
+\end_inset
+
+: Sum across surviving and entering banks
+\begin_inset Formula 
+\[
+N_{t}=\sigma\left[\left(Z_{t}+Q_{t}\right)K_{t-1}^{b}-R_{t}D_{t-1}\right]+\underbrace{W^{b}}_{=\left(1-\sigma\right)w^{b}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Consumption of exiting bankers:
+\begin_inset Formula 
+\[
+C_{t}^{b}=\left(1-\sigma\right)\left[\left(Z_{t}+Q_{t}\right)K_{t-1}^{b}-R_{t}D_{t-1}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Total output:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Income:
+\begin_inset Formula 
+\[
+Y_{t}=Z_{t}+Z_{t}W^{h}+W^{b}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Expenditures
+\begin_inset Formula 
+\[
+Y_{t}=f\left(K_{t}^{h}\right)+C_{t}^{h}+C_{t}^{b}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Unanticipated Bank Runs
+\end_layout
+
+\begin_layout Itemize
+Unanticipated: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Households attach zero probability to event of a run at 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Allow for run ex post as deposits mature at 
+\begin_inset Formula $t$
+\end_inset
+
+ and households must decide whether or not to roll over.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Banks must have 
+\begin_inset Formula $n_{t}>0$
+\end_inset
+
+ in order to operate.
+ 
+\end_layout
+
+\begin_layout Itemize
+Individually rational for households to not roll over if 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+perceives that other households will do the same, leading to a forced liquidatio
+n.
+\end_layout
+
+\begin_layout Itemize
+forced liquidation makes banks insolvent (
+\begin_inset Formula $n_{t}=0$
+\end_inset
+
+).
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Two equilibria
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Normal
+\begin_inset Quotes erd
+\end_inset
+
+.
+ No run, roll over.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Run
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Bank run, don't roll over.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Modeling of run: key is that 
+\begin_inset Formula $n_{t}=0$
+\end_inset
+
+, not a sequential service constraint.
+ Even if all depositors take same haircut, it is fact that bank has no net
+ worth that will lead bank to divert.
+\end_layout
+
+\begin_layout Subsection
+Conditions for a run equilibrium
+\end_layout
+
+\begin_layout Itemize
+Considering run on entire banking system, not on individual banks.
+\end_layout
+
+\begin_layout Itemize
+After 
+\begin_inset Formula $Z_{t}$
+\end_inset
+
+ announced, households decide whether to run or not.
+ 
+\end_layout
+
+\begin_layout Itemize
+If run, bank liquidates all capital and turns proceeds over to households.
+ 
+\end_layout
+
+\begin_layout Itemize
+Households then operate capital 
+\begin_inset Formula $K_{t}^{h}$
+\end_inset
+
+ directly with less efficient technology.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $Q_{t}^{*}$
+\end_inset
+
+ be price of capital in event of a forced liquidation of banking system.
+ 
+\end_layout
+
+\begin_layout Itemize
+A run on bank possible if liquidation value of bank assets is smaller than
+ outstanding liability:
+\begin_inset Formula 
+\[
+\underbrace{\left(Z_{t}+Q_{t}^{*}\right)K_{t-1}^{b}}_{\text{Liq. Value}}\leq\underbrace{R_{t}D_{t-1}}_{\text{Liability}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Why? In this case the banks net worth is wiped out by run, leading to bank
+ diversion.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Recovery rate in event of bank run 
+\begin_inset Formula $x_{t}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+x_{t}:=\frac{\left(Z_{t}+Q_{t}^{*}\right)K_{t-1}^{b}}{R_{t}D_{t-1}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+When 
+\begin_inset Formula $x_{t}<1$
+\end_inset
+
+, conditions for bank run equilibrium exist.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula $x_{t}$
+\end_inset
+
+ depends on two key endogenous variables: 
+\begin_inset Formula $Q_{t}^{*}$
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+Condition of bank balance sheets
+\begin_inset Quotes erd
+\end_inset
+
+ (leverage?).
+ 
+\end_layout
+
+\begin_layout Itemize
+That is,
+\begin_inset Formula 
+\begin{align*}
+x_{t} & =\frac{R_{t}^{b*}}{R_{t}}\cdot\frac{\phi_{t-1}}{\phi_{t-1}-1}<1\\
+R_{t}^{b*} & \equiv\frac{Z_{t}+Q_{t}^{*}}{Q_{t-1}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $R_{t}^{b*}$
+\end_inset
+
+--return on banks assets conditional on run at 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\phi_{t-1}$
+\end_inset
+
+--bank leverage multiple at 
+\begin_inset Formula $t-1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Run eqn.
+ exists if realized rate of return on bank assets conditional on liquidation
+ of assets 
+\begin_inset Formula $R_{t}^{b*}$
+\end_inset
+
+ is sufficiently low relative to the gross interest rate on deposits 
+\begin_inset Formula $R_{t}$
+\end_inset
+
+ and leverage multiple is sufficiently high.
+ 
+\end_layout
+
+\begin_layout Itemize
+i.e.
+ 
+\begin_inset Formula $R_{t}^{b*}$
+\end_inset
+
+ small relative to 
+\begin_inset Formula $R_{t}$
+\end_inset
+
+.
+ Leverage is big.
+ 
+\end_layout
+
+\begin_layout Itemize
+And 
+\begin_inset Formula $R_{t}^{b*}$
+\end_inset
+
+ small is hooked up to 
+\begin_inset Formula $Z_{t}$
+\end_inset
+
+ small.
+\end_layout
+
+\begin_layout Itemize
+All of these variables are independent of individual bank size.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Liquidation Price 
+\begin_inset Formula $Q_{t}^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Depositor run at 
+\begin_inset Formula $t$
+\end_inset
+
+ induces all banks with assets at 
+\begin_inset Formula $t-1$
+\end_inset
+
+ to fully liquidate asset positions and go out of business.
+ 
+\end_layout
+
+\begin_layout Itemize
+Assets sold to households, who hold at 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Banking system then recovers as new banks enter.
+\end_layout
+
+\begin_layout Itemize
+ASSUME.
+ New banks cannot begin operating until the period after the panic run.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Makes the asset fire sale quantitatively significant.
+\end_layout
+
+\begin_layout Itemize
+idea: during fire sale, households cannot identify which new banks are independe
+nt, etc.
+ 
+\end_layout
+
+\begin_layout Itemize
+Otherwise, all households would want to store assets with new banks.
+ New Banks could maybe also buy capital of failing banks.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Run at date 
+\begin_inset Formula $t$
+\end_inset
+
+ then implies households hold all capital:
+\begin_inset Formula 
+\[
+\text{Total Capital}=1=K_{t}^{h}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Bank net worth evolution post-run
+\begin_inset Formula 
+\begin{align*}
+N_{t+1} & =W^{b}+\sigma W^{b}\\
+N_{t+i} & =\sigma\left[\left(Z_{t+i}+Q_{t+i}\right)K_{t+i-1}^{b}-R_{t+i}D_{t+i-1}\right]+W^{b}\;\forall i>1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Reflects fact that banks don't operate initially.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Rearrange household capital holding condition to get liquidation price:
+\begin_inset Formula 
+\[
+Q_{t}^{*}=\Exp_{t}\left[\sum_{i=1}^{\infty}\Lambda_{t,t+i}\left(Z_{t+i}-\alpha K_{t+i}^{h}\right)\right]-\alpha
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Numerical Examples
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{ccccc}
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
