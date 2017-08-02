@@ -14,6 +14,8 @@ run to  about 12,000 characters). However, with Matlab's symbolic math tools we 
 from the choice of this parameter to the "initial state" condition. Thus, to find an equilibrium path we can i) make guesses of this 
 parameter then ii) use a quadratic spline to interpolate the correct parameter value.
 
+To the best of my knowledge, this is a fairly novel solution technique.
+
 ## File Organization
 
 The code is currently a mess of files. Part of this has to do with Matlab's insistence that each function get its own file. 
